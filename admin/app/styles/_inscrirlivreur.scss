@@ -1,0 +1,96 @@
+.add-livreur {
+    display: flex;
+    flex-direction: column;
+    background: #f0f1f5;
+    padding: 10px;
+    height: 87vh;
+
+    .title {
+        display: flex;
+        justify-content: center;
+        background-color: #2d1a35;
+        height: 50px;
+
+        h2 {
+            margin: 15px;
+            font-size: 14px;
+            font-family: roboto;
+            color: #f0f1f5;
+            text-transform: uppercase;
+        }
+    }
+
+    .form {
+        background-color: #ffff;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        margin: 10px;
+
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            margin: 5px;
+            align-self: flex-start;
+
+            .label {
+                display: inline-block;
+                justify-content: center;
+                font-size: 16px;
+                font-family: roboto;
+                font-weight: bold;
+                margin: 5px;
+                cursor: pointer;
+            }
+
+            select {
+                width: 312px;
+                height: 35px;
+                font-size: 16px;
+                font-family: roboto;
+                padding: 5px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+
+            input {
+                width: 300px;
+                height: 35px;
+                padding: 5px;
+                font-size: 16px;
+                font-family: roboto;
+                background: #f0f1f5;
+                border: none;
+                outline: none;
+                margin: 5px;
+                border-radius: 10px;
+            }
+
+            input[placeholder] {
+                font-family: roboto;
+                font-size: 16px;
+                font-weight: 500;
+                color: rgb(56, 56, 56);
+            }
+
+
+        }
+
+        .btn-add {
+            width: 100px;
+            height: 35px;
+            color: #ffff;
+            background: #120329;
+            border: none;
+            margin: 10px;
+            cursor: pointer;
+            transition: 0.3s ease;
+
+            &:hover {
+                background-color: #522c63;
+            }
+        }
+    }
+}

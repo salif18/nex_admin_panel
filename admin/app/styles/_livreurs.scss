@@ -1,0 +1,41 @@
+.livreurs {
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f1f5;
+    height: 87vh;
+    padding: 10px;
+
+    .livreur-header {
+        margin: 2px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #ffff;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+
+        h2 {
+            font-size: 20px;
+            font-family: roboto;
+        }
+
+       
+            .action {
+                display: flex;
+                justify-content: center;
+                margin-left: 15px;
+                
+                width: 40px;
+                height: 40px;
+                border-radius: 15px;
+                background-color: #f0f1f5;
+
+                .icon {
+                margin: 7px;
+                    font-size: 25px;
+                }
+            }
+        
+    }
+    
+}

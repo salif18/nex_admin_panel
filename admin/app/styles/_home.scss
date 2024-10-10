@@ -1,0 +1,45 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    background: #f0f1f5;
+    height: 90vh;
+    .section-header{
+        margin-bottom: 5px;
+        height: 50px;
+        background-color: #ffff;
+        display: flex;
+        padding: 10px 0 0 10px;
+        border-radius: 10px;
+        h2{
+            font-size: 20px;
+            font-family: roboto;
+        }
+    }
+
+    .first-row{
+        margin: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .row{
+            display: flex;
+            .column{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+       
+    }
+
+    .second-row{
+        margin: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .row{
+            display: flex;
+        }
+    }
+
+
+}
