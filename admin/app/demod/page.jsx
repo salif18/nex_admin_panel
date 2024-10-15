@@ -1,6 +1,7 @@
 // pages/index.js
+"use client"
 import { useState } from "react";
-import styles from '../styles/Home.module.css';
+import styles from '../styles/prod.module.scss';
 
 const Prod = () => {
   const [filters, setFilters] = useState({
