@@ -8,6 +8,8 @@ import Widget5 from './ui/Widget5';
 import Widget from './ui/Widget';
 import Widget6 from './ui/Widget6';
 import Widget7 from './ui/Widget7';
+import Widget8 from './ui/Widget8';
+import Widget9 from './ui/Widget9';
 
 
 export default function Home() {
@@ -107,19 +109,25 @@ export default function Home() {
           <section className='column'>
             <Widget />
             <Widget1 />
+            <Widget8/>
           </section>
           <section className='column'>
             <Widget2 />
             <Widget3 />
+            <Widget9/>
           </section>
         </section>
       </section>
-      <section className='second-row'>
-        <Widget5 data={statsYear} />
+      <section className='column'>
+       
+       
+      </section>
+      <section className='three-row'>
         <section className='row'>
           <Widget6 />
           <Widget7 />
         </section>
+        <Widget5 data={statsYear} />
       </section>
     </main>
   );

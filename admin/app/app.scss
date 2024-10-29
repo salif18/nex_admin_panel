@@ -19,16 +19,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Allison&display=swap");
 
 
+:root{
+  --backgroundPrimary:#2d1a35;
+  --backgroundSecondary:orange,
+  --textSize:1em;
+  --titleSize:1.3em;
+  --btnColor:orangered
+}
+
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Roboto",sans-serif;
 }
+
 
 .body{
   display: flex;
-  height: 90vh;
+  
   .contents{
-    flex: 1
+    width: 100%;
+    height: calc(100vh - 50px);
+    overflow-y: scroll
   }
 }
 
@@ -45,10 +61,13 @@
 @import "./styles/widget5";
 @import "./styles/widget6";
 @import "./styles/widget7";
+@import "./styles/widget8";
+@import "./styles/widget9";
 @import "./styles/product";
 @import "./styles/addprod";
 @import "./styles/categorie";
 @import "./styles/livreurs";
 @import "./styles/commandes";
 @import "./styles/createcategorie";
+@import "./styles/addoptions";
 @import "./styles/inscrirlivreur";

@@ -1,8 +1,10 @@
 .sidebar {
     width: 250px;
-    background-color: #2d1a35;
+    height: calc(100vh - 50px);
+    background-color: var(--backgroundPrimary);
     box-shadow: 1px 1px 1px 1px #dee0ee;
     padding: 10px;
+    transition: all 0.3s ease;
 
     .nav-bar {
         // background-color: #2d1a35;
@@ -12,12 +14,28 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            
-            .entete{
-            font-size: 20px;
-            margin: 10px;
-            color: #f0f1f5;
+
+            .side-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .entete {
+                    font-size: 20px;
+                    margin: 10px;
+                    color: #f0f1f5;
+                }
+
+                .btn-toggle {
+                    width: 30px;
+                    height: 30px;
+                    border: none;
+                    border-radius: 20px;
+                    background-color: var(--backgroundPrimary);
+                    color: #f0f1f5;
+                }
             }
+
             .ul-link {
                 margin: 15px;
                 list-style: none;
@@ -28,21 +46,27 @@
                     .link-content {
                         display: flex;
                         align-items: center;
-                        font-family: roboto;
+                        font-family: "Montserrat";
                         font-size: 14px;
                         font-weight: bold;
                         color: #ffff;
-                        &:hover{
+
+                        span {
+                            display: flex;
+                            transition: all 0.3s ease;
+                        }
+
+                        &:hover {
                             color: rgb(255, 127, 8);
                             transition: 0.2s ease;
                         }
                     }
 
                     .icon {
-                        size: 24;
+                        font-size: 1.4em;
                         margin-right: 10px;
                     }
-                   
+
                 }
 
 
@@ -54,7 +78,7 @@
                     .link-content {
                         display: flex;
                         align-items: center;
-                        font-family: roboto;
+                        font-family: "Montserrat";
                         font-size: 14px;
                         font-weight: bold;
                         color: rgb(255, 127, 8);
@@ -63,7 +87,110 @@
 
 
                     .icon {
-                        size: 24;
+                        font-size: 1.4em;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.reduit {
+    width: 50px;
+    height: calc(100vh - 50px);
+    background-color: var(--backgroundPrimary);
+    box-shadow: 1px 1px 1px 1px #dee0ee;
+    padding: 10px;
+    transition: all 0.3s ease;
+
+    .nav-bar {
+        // background-color: #2d1a35;
+        border-radius: 10px;
+
+        .nav-bar-ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .side-header {
+                display: flex;
+                align-items: center;
+
+                .entete {
+                    display: none;
+                    font-size: 20px;
+                    margin: 10px;
+                    color: #f0f1f5;
+                    transition: all 0.3s ease;
+                }
+
+                .btn-toggle {
+                    width: 30px;
+                    height: 30px;
+                    border: none;
+                    border-radius: 20px;
+                    background-color:var(--backgroundPrimary);
+                    color: #f0f1f5;
+                }
+            }
+
+            .ul-link {
+                margin: 15px;
+                list-style: none;
+
+                .a {
+                    text-decoration: none;
+
+                    .link-content {
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        font-weight: bold;
+                        color: #ffff;
+
+                        span {
+                            display: none;
+                            transition: all 0.3s ease;
+                        }
+
+                        &:hover {
+                            color: rgb(255, 127, 8);
+                            transition: 0.2s ease;
+                        }
+
+                    }
+
+                    .icon {
+                        font-size: 1.4em;
+                        margin-right: 10px;
+                    }
+
+                }
+
+
+
+                .active-link {
+
+                    text-decoration: none;
+
+                    .link-content {
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        font-weight: bold;
+                        color: rgb(255, 127, 8);
+
+                        span {
+                            display: none;
+                        }
+
+                    }
+
+
+                    .icon {
+                        font-size: 1.4em;
                         margin-right: 10px;
                     }
                 }

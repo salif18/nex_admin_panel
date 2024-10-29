@@ -44,7 +44,7 @@ const Widget7 = () => {
                       <p>{element.categorie}</p>
                     </section>
                     <section className='achat'>
-                      <SignalCellularAltIcon className='icon-blue' />
+                     
                       <Groups2Icon className='icon' />
                       <p className='nombre'>{element.achat}</p>
                     </section>

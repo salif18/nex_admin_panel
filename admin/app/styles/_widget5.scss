@@ -11,16 +11,32 @@
 
     h1{
         margin: 5px;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: bold;
         font-family: Roboto ,sans-serif;
     }
-
+.chart-container{
+    height: 350px;
+    margin-top: 5px
+}
     p{
         margin: 5px;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: bold;
         color: #4d4d4ddd;
         font-family: Roboto ,sans-serif;
+    }
+}
+
+
+@media (max-width:768px) {
+    .widget5{
+        width: 95%;
+
+        .chart-container{
+            height: 150px;
+            margin-top: 5px
+        }
+          
     }
 }

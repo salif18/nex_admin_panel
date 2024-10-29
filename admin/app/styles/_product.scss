@@ -1,32 +1,34 @@
 .product {
     display: flex;
+    align-items: center;
     flex-direction: column;
     background-color: #f0f1f5;
-    height: 87vh;
     padding: 10px;
+    height: 100vh;
 
     .product-header {
         margin: 2px;
-        height: 50px;
+        width: 100%;
+        height: 80px;
         border-radius: 10px;
         background-color: #ffff;
         display: flex;
+        align-items: center;
         justify-content: space-between;
         padding: 10px;
 
         h2 {
-            font-size: 20px;
+            font-size: 1em;
             font-family: roboto;
         }
 
         .section-search {
             display: flex;
             justify-content: space-between;
-
             .form input {
-                border-radius: 20px;
-                height: 20px;
-                width: 300px;
+                border-radius: 10px;
+                height: 40px;
+                width: 100%;
                 padding: 10px;
                 outline: none;
                 border: 1px solid #f0f1f5;
@@ -35,20 +37,28 @@
 
             .action {
                 display: flex;
+                align-items: center;
                 justify-content: center;
                 margin-left: 15px;
-                
-                width: 40px;
+                width: 80px;
                 height: 40px;
-                border-radius: 15px;
-                background-color: #f0f1f5;
-
+                border-radius: 10px;
+                background-color: orangered;
+                cursor: pointer;
                 .icon {
-                margin: 7px;
-                    font-size: 25px;
+                    font-size: 1em;
+                    color:#f0f1f5
                 }
             }
         }
     }
     
+}
+
+@media (max-width:768px) {
+    .product-header{
+    h2{
+        display: none;
+    }
+}
 }
