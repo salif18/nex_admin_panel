@@ -1,7 +1,13 @@
+"use client"
 import React from 'react';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { useRouter } from 'next/navigation';
 
 const Tableau = ({ order }) => {
+    const router = useRouter()
+    const handleNavigueToSingle=()=>{
+        router.push(`/dashboard/commandes/${order.id}`);
+      }
     return (
 
         <tbody>
@@ -12,7 +18,7 @@ const Tableau = ({ order }) => {
                 <td>{order.date}</td>
                 <td className='actions'>
                     <section className='btns-action'>
-                        <VisibilityIcon className='view' />
+                        <VisibilityIcon className='view' onClick={handleNavigueToSingle} />
                         <button className='cancel'>Annuler</button>
                         <button className='livrer'>Livrer</button>
                     </section>

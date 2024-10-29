@@ -8,9 +8,9 @@ const orders = [
         address: "bamako",
         total: 26666,
         products: [
-            { id: 1, qty: 2 },
-            { id: 3, qty: 1 },
-            { id: 9, qty: 2 },
+            { id: 1, qty: 2 ,color:"red" ,size:"M" },
+            { id: 3, qty: 1 ,color:"blue", size:"X"},
+            { id: 9, qty: 2 ,color:"jaune",size:"S" },
         ],
         date: "12-10-2024"
     },
@@ -23,9 +23,9 @@ const orders = [
         address: "bamako",
         total: 26666,
         products: [
-            { id: 9, qty: 2 },
-            { id: 10, qty: 1 },
-            { id: 12, qty: 2 },
+            { id: 9, qty: 2 ,color:"red" ,size:"M"},
+            { id: 10, qty: 1 ,color:"red" ,size:"M" },
+            { id: 12, qty: 2,color:"red" ,size:"M" },
         ],
         date: "12-10-2024"
     },
@@ -38,9 +38,9 @@ const orders = [
         address: "bamako",
         total: 266636,
         products: [
-            { id: 15, qty: 2 },
-            { id: 8, qty: 1 },
-            { id: 4, qty: 5 },
+            { id: 15, qty: 2 ,color:"red" ,size:"M" },
+            { id: 8, qty: 1 ,color:"red" ,size:"M"},
+            { id: 4, qty: 5 ,color:"red" ,size:"M"},
         ],
         date: "12-10-2024"
     }

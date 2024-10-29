@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import orders from "@/app/lib/fakeorder";
 
 const Commandes = () => {
+ 
   const [filter, setFilter] = useState("tous");
   const options = [
     { id: 1, value: "Livrée" },
@@ -13,7 +14,7 @@ const Commandes = () => {
   ];
 
   const ordersFilter = filter === "tous" ? orders : orders.filter((item) => item.status === filter);
-
+ 
   return (
     <main className="commandes">
       <section className="commande-header">
