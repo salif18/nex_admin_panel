@@ -28,80 +28,72 @@
             justify-content: center;
             background-color: green;
             h2{
+                font-size: 1em;
                 color:#f0f1f5;
             }
         }
     }
     // infos 
     .infos{
-        display: flex;
+       
         align-items: center;
-        padding: 20px;
-        gap: 20px;
+        flex-wrap: wrap;
+      
         width: 100%;
-        background-color: #fff;
-        border-bottom: 1px solid green;
+       
         h2{
-            font-size: 1em;
+            font-size: 0.6em;
             font-family: "Roboto";
             color: grey;
         }
         span{
-            font-size: 1em;
+            font-size: 0.6em;
             font-family: "Roboto";
-            font-weight: 600;
+            font-weight: 400;
             color: gray;
         }
     }
     //product items
     .product-items{
       width: 100%;
-      background-color: #fff;
-      display: flex;
       align-items: center;
       flex-direction: column;
       .card-item{
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        background-color: #fff;
-        border-bottom: 1px solid #f0f1f5;
+        flex-direction: column;
         .left{
-         width: 300px;
-         margin: 10px;
-         display: flex;
-         gap: 10px;
+         width: 100%;
+        
          img{
-            width: 50%;
-            height: 10vh;
-            background: #f0f1f5;
-            border: 1px solid #f0f1f5;
+            width: 50px;
+            height: 50px;
+           
          }
          .column{
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
+            gap: 5px;
+            h2{
+                font-size: 0.6em;
+                font-family: "Roboto";
+            }
          }
         }
 
         .rigth{
             width: 100px;
-            margin: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
+            
             h2{
-                font-size: 1em;
+                font-size: 0.6em;
                 font-family: "Roboto";
             }
             span{
                 font-family: "Roboto";
-                font-size: 1em;
-                font-weight: 600;
+                font-size: 0.6em;
+                color: grey;
+                font-weight: 400;
             }
         }
       }
@@ -139,5 +131,137 @@
 }
 
 @media (max-width:768px) {
+    .single-commande{
+        
+        //header
+        .single-header{
+            width: 100%;
+           flex-direction: column;
+           align-items: center;
+            
+            h2{
+                font-size: 0.9em;
+                font-family: "Roboto";
+            }
     
+            .zone-status{
+                width: 100%;
+                
+                h2{
+                    color:#f0f1f5;
+                }
+            }
+        }
+        // infos 
+        .infos{
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            gap: 20px;
+            width: 100%;
+            background-color: #fff;
+            border-bottom: 1px solid green;
+            h2{
+                font-size: 1em;
+                font-family: "Roboto";
+                color: grey;
+            }
+            span{
+                font-size: 1em;
+                font-family: "Roboto";
+                font-weight: 600;
+                color: gray;
+            }
+        }
+        //product items
+        .product-items{
+          width: 100%;
+          background-color: #fff;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          .card-item{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #f0f1f5;
+            .left{
+             width: 100%;
+             margin: 10px;
+             display: flex;
+             gap: 10px;
+             img{
+                width: 80px;
+                height: 80px;
+                background: #f0f1f5;
+                border: 1px solid #f0f1f5;
+             }
+             .column{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 5px;
+                h2{
+                    font-size: 1em;
+                    font-family: "Roboto";
+                }
+             }
+            }
+    
+            .rigth{
+                width: 100px;
+                margin: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                h2{
+                    font-size: 1em;
+                    font-family: "Roboto";
+                }
+                span{
+                    font-family: "Roboto";
+                    font-size: 1em;
+                    color: grey;
+                    font-weight: 600;
+                }
+            }
+          }
+        }
+    
+        //address
+        .address{
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            .left,
+            .rigth{
+                margin:15px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                h2{
+                    font-size: 1em;
+                    font-family: "Roboto";
+                    margin: 10px;
+                }
+                span{
+                    margin: 10px;
+                    font-size: 1em;
+                    font-family: "Roboto";
+                }
+            }
+        }
+    
+    }
 }
