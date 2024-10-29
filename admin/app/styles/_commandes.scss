@@ -2,9 +2,10 @@
     display: flex;
     flex-direction: column;
     background-color: #f0f1f5;
-    height: 87vh;
+    height: 100vh;
     padding: 10px;
 
+    //COMMANDE HEADER
     .commande-header {
         margin: 2px;
         height: 50px;
@@ -14,28 +15,194 @@
         justify-content: space-between;
         padding: 10px;
 
-        h2 {
-            font-size: 20px;
-            font-family: roboto;
+        .title {
+
+            h2 {
+                font-size: 20px;
+                font-family: roboto;
+            }
         }
 
-       
-            .action {
-                display: flex;
-                justify-content: center;
-                margin-left: 15px;
-                
-                width: 40px;
-                height: 40px;
-                border-radius: 15px;
-                background-color: #f0f1f5;
+        select {
+            width: 20%;
+            padding: 5px;
+            outline: none;
+            background-color: orangered;
+            border: none;
+            color: #f0f1f5;
+            font-size: 0.8em;
+            font-family: "roboto";
+            border-radius: 20px;
+        }
+    }
 
-                .icon {
-                margin: 7px;
-                    font-size: 25px;
+    // CONTAINER DATA
+    .container-data {
+        margin-top: 20px;
+        width: 100%;
+
+        .my-array {
+            width: 100%;
+            background: #ffff;
+            border: 1px solid #f0f1f5;
+
+            thead tr {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 50px;
+                border-bottom: 2px solid orangered;
+
+                th {
+                    padding: 5px;
+                    width: 100%;
+                    font-size: 0.8em;
+                    text-transform: uppercase;
+                    font-family: "Roboto";
+                    text-align: start;
+                    /* Centre le texte dans les en-têtes */
                 }
             }
-        
+
+            tbody tr {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-bottom: 1px solid #f0f1f5;
+                height: 50px;
+
+                td {
+                    padding: 5px;
+                    width: 100%;
+                    font-size: 0.8em;
+                    text-transform: uppercase;
+                    font-family: "Roboto";
+                    text-align: start;
+                    /* Centre le texte dans les cellules */
+                }
+
+                .actions{
+                    
+                        padding: 5px;
+                        width: 100%;
+                        font-size: 0.8em;
+                        text-transform: uppercase;
+                        font-family: "Roboto";
+                        text-align: start;
+                        /* Centre le texte dans les cellules */
+                    
+                .btns-action {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    /* Centre les boutons */
+                    gap: 10px;
+                    .view{
+                        font-size: 1.2rem;
+                        color: gray;
+                        cursor: pointer;
+                    }
+                    .cancel,
+                    .livrer {
+                        width: 20%;
+                        border: none;
+                        font-family: "Roboto";
+                        font-size: 0.7rem;
+                        color: #f0f1f5;
+                        height: 30px;
+                        margin: 5px;
+                        cursor: pointer;
+                    }
+                   
+
+                    .cancel {
+                        background-color: red;
+                    }
+
+                    .livrer {
+                        background-color: green;
+                    }
+                }
+            }
+            }
+        }
+
     }
-    
+}
+
+@media (max-width:768px) {
+    .commandes {
+
+        //COMMANDE HEADER
+        .commande-header {
+            .title {
+
+                h2 {
+                    font-size: 0.8em;
+                    font-family: roboto;
+                    display: none;
+                }
+            }
+
+            select {
+                width: 100%;
+
+            }
+        }
+
+        // CONTAINER DATA
+        .container-data {
+            margin-top: 20px;
+            width: 100%;
+            overflow-x: auto;
+
+            .my-array {
+
+                thead tr {
+
+
+
+                    th {
+
+                        font-size: 0.5em;
+
+                    }
+                }
+
+                tbody tr {
+
+
+                    td {
+                        width: 100px;
+                        font-size: 0.6em;
+
+                    }
+.actions{
+    width: 200px;
+                    .btns-action {
+                       
+                        .cancel,
+                        .livrer {
+                            width: 100%;
+                            font-size: 0.6rem;
+                            color: #f0f1f5;
+
+                            cursor: pointer;
+                        }
+
+                        .cancel {
+                            background-color: red;
+                        }
+
+                        .livrer {
+                            background-color: green;
+                        }
+                    }
+                }
+                }
+            }
+
+        }
+
+    }
 }
