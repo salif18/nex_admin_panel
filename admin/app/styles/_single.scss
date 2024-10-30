@@ -4,7 +4,8 @@
     flex-direction: column;
     background-color: #f0f1f5;
     padding: 10px;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
 
     //header
     .single-header {
@@ -43,6 +44,7 @@
         align-items: start;
         flex-direction: column;
         padding: 20px;
+        margin: 10px;
         gap: 20px;
         width: 100%;
         background-color: #fff;

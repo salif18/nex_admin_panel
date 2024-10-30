@@ -4,7 +4,8 @@
     flex-direction: column;
     background-color: #f0f1f5;
     padding: 10px;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
 
     .product-header {
         margin: 2px;

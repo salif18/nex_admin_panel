@@ -103,6 +103,106 @@ const orders = [
            
         ],
         date: "12-10-2024"
+    },
+    {
+        id: "7",
+        user: "safiatou",
+        numero: "78303214",
+        email: "safia@gmail.com",
+        status: "En attente",
+        address: "bamako, Sirakoro",
+        total: 12000,
+        products: [
+            { id: 7, qty: 1 ,color:"red" ,size:"M" },
+            { id: 4, qty: 1 ,color:"jaune",size:"S" },
+        ],
+        date: "12-10-2024"
+    },
+    {
+        id: "8",
+        user: "seydou",
+        numero: "78303214",
+        email: "seydou@gmail.com",
+        status: "Livrée",
+        address: "bamako ,Mangambougou rue:578 ,log:45",
+        total: 55466,
+        products: [
+            { id: 9, qty: 1 ,color:"Noir" ,size:"M"},
+            { id: 2, qty: 1 ,color:"red" ,size:"M" },
+            { id: 11, qty: 1,color:"blanc" ,size:"M" },
+            { id: 1, qty: 1,color:"grey" ,size:"S" },
+            { id: 7, qty: 1,color:"red" ,size:"M" },
+        ],
+        date: "12-10-2024"
+    },
+    {
+        id: "9",
+        user: "Awa",
+        numero: "78303215",
+        email: "awa@gmail.com",
+        status: "Annulée",
+        address: "bamako, Sebenicoro , rue: 145 , log: 78",
+        total: 35636,
+        products: [
+            { id: 10, qty: 2 ,color:"red" ,size:"M" },
+            { id: 9, qty: 1 ,color:"noir" ,size:"M"},
+           
+        ],
+        date: "12-10-2024"
+    },
+    {
+        id: "10",
+        user: "Moussa",
+        numero: "78303216",
+        email: "moussa@gmail.com",
+        status: "Livrée",
+        address: "bamako,Lafiabougou , rue: 145 , log: 78",
+        total: 145636,
+        products: [
+            { id: 4, qty: 2 ,color:"grey" ,size:"M" },
+            { id: 3, qty: 1 ,color:"noir" ,size:"M"},
+            { id: 7, qty: 1 ,color:"bleu" ,size:"M"},
+            { id: 9, qty: 1 ,color:"noir" ,size:"M"},
+            { id: 14, qty: 1 ,color:"grey" ,size:"M"},
+            { id: 11, qty: 1 ,color:"rouge" ,size:"M"},
+            { id: 1, qty: 1 ,color:"noir" ,size:"M"},
+            { id: 6, qty: 1 ,color:"noir" ,size:"M"},
+            { id: 13, qty: 1 ,color:"noir" ,size:"M"},
+           
+        ],
+        date: "12-10-2024"
+    },
+    {
+        id: "11",
+        user: "Bouba",
+        numero: "78303212",
+        email: "bouba@gmail.com",
+        status: "En attente",
+        address: "bamako,banankabougou , rue: 145 , log: 78",
+        total: 24636,
+        products: [
+           
+            { id: 11, qty: 1 ,color:"rouge" ,size:"M"},
+            { id: 1, qty: 1 ,color:"noir" ,size:"S"},
+           
+        ],
+        date: "12-10-2024"
+    },
+    {
+        id: "10",
+        user: "Baba",
+        numero: "78303213",
+        email: "baba@gmail.com",
+        status: "Annulée",
+        address: "bamako,Faladie, rue: 145 , log: 78",
+        total: 45000,
+        products: [
+            { id: 2, qty: 2 ,color:"grey" ,size:"M" },
+            { id: 5, qty: 1 ,color:"noir" ,size:"S"},
+            { id: 15, qty: 1 ,color:"noir" ,size:"S"},
+           
+        ],
+        date: "12-10-2024"
     }
 ]
 
