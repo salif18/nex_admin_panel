@@ -34,14 +34,22 @@ const Single = () => {
                 </section>
             </section>
             <section className='infos'>
+                <section className='row'>
                 <h2>Date</h2>
                 <span>{order.date}</span>
-                <h2>Name</h2>
+                </section>
+                <section className='row'>
+                <h2>Client</h2>
                 <span>{order.user}</span>
+                </section>
+                <section className='row'>
                 <h2>Numero</h2>
                 <span>{order.numero}</span>
+                </section>
+                <section className='row'>
                 <h2>Email</h2>
                 <span>{order.email}</span>
+                </section>
             </section>
             <section className='product-items'>
                 {productItems.map((item, index) => item && (
@@ -62,11 +70,11 @@ const Single = () => {
                 ))}
             </section>
             <section className='address'>
-                <div className='left'>
+                <div className='row1'>
                     <h2>Total</h2>
                     <span>{order.total} XOF</span>
                 </div>
-                <div className='rigth'>
+                <div className='row2'>
                     <h2>Address</h2>
                     <span>{order.address}</span>
                 </div>

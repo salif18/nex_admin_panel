@@ -183,8 +183,11 @@
         }
        }
        .form-rigth{
-        align-items: center;
+        width: 100%;
         .form-field{
+            input{
+                width: 100%;
+            }
             .file-label{
                 font-size: 0.7em;
             }
@@ -192,6 +195,7 @@
         .btn-save-new{
             width: 100%;
             font-size: 0.6em;
+            align-self: center;
         }
        }
     }  

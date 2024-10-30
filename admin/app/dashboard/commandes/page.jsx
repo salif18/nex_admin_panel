@@ -32,7 +32,7 @@ const Commandes = () => {
       <table className='my-array'>
       <thead>
         <tr>
-          <th>Commande ID</th>
+          <th>Order_ID</th>
           <th>Total</th>
           <th>Status</th>
           <th>Date</th>

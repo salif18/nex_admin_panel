@@ -14,7 +14,7 @@ const Tableau = ({ order }) => {
             <tr>
                 <td>{order.id}</td>
                 <td>{order.total}</td>
-                <td>{order.status}</td>
+                <td style={{color: order.status === "Livrée" && "green" || order.status === "Annulée" && "red" || order.status === "En attente" && "blue"}}>{order.status}</td>
                 <td>{order.date}</td>
                 <td className='actions'>
                     <section className='btns-action'>

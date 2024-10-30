@@ -15,6 +15,7 @@
         justify-content: space-between;
         padding: 15px;
         gap: 20px;
+        border-bottom: 1px solid green;
 
         h2 {
             font-size: 0.9em;
@@ -39,25 +40,32 @@
     // infos 
     .infos {
         display: flex;
-        align-items: center;
+        align-items: start;
+        flex-direction: column;
         padding: 20px;
         gap: 20px;
         width: 100%;
         background-color: #fff;
         border-bottom: 1px solid green;
-
+ .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+   
         h2 {
-            font-size: 1em;
+            font-size: 0.8em;
             font-family: "Roboto";
-            color: grey;
+            color: #222222;
         }
 
         span {
-            font-size: 1em;
+            font-size: 0.8em;
             font-family: "Roboto";
-            font-weight: 600;
+            font-weight: 400;
             color: gray;
         }
+ }
     }
 
     //product items
@@ -98,9 +106,15 @@
                     gap: 5px;
 
                     h2 {
-                        font-size: 1em;
+                        font-size: 0.8em;
                         font-family: "Roboto";
                     }
+                    span {
+                    font-family: "Roboto";
+                    font-size: 0.8em;
+                    color: grey;
+                    font-weight: 400;
+                }
                 }
             }
 
@@ -108,20 +122,21 @@
                 width: 100px;
                 margin: 10px;
                 display: flex;
+                gap: 10px;
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: flex-start;
 
                 h2 {
-                    font-size: 1em;
+                    font-size: 0.8em;
                     font-family: "Roboto";
                 }
 
                 span {
                     font-family: "Roboto";
-                    font-size: 1em;
+                    font-size: 0.8em;
                     color: grey;
-                    font-weight: 600;
+                    font-weight: 400;
                 }
             }
         }
@@ -132,18 +147,16 @@
         width: 100%;
         background-color: #fff;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 15px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
 
-        .left,
-        .rigth {
-            margin: 15px;
-            padding: 10px;
+        .row1,
+        .row2 { 
+            width: 100%;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
+            align-items: center;
+            justify-content: space-between;
 
             h2 {
                 font-size: 1em;
@@ -186,29 +199,31 @@
         }
 
         // infos 
-        .infos {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            padding: 20px;
-            gap: 20px;
-            width: 100%;
-            background-color: #fff;
-            border-bottom: 1px solid green;
-
-            h2 {
-                font-size: 0.7em;
-                font-family: "Roboto";
-                color: grey;
-            }
-
-            span {
-                font-size: 0.7em;
-                font-family: "Roboto";
-                font-weight: 600;
-                color: gray;
-            }
+         .infos {
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        width: 100%;
+        background-color: #fff;
+        border-bottom: 1px solid green;
+ .row{
+   
+        h2 {
+            font-size: 0.7em;
+            font-family: "Roboto";
+            color: #222222;
         }
+
+        span {
+            font-size: 0.7em;
+            font-family: "Roboto";
+            font-weight: 400;
+            color: gray;
+        }
+ }
+    }
 
         //product items
         .product-items {
@@ -288,24 +303,23 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 15px;
+            gap: 5px;
 
-            .left,
-            .rigth {
-                margin: 15px;
-                padding: 10px;
-                display: flex;
-                flex-direction: column;
-                align-items: start;
+            .row1,
+            .row2 {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
                 h2 {
                     font-size: 0.7em;
                     font-family: "Roboto";
-                    margin: 10px;
+                    margin: 5px;
                 }
 
                 span {
-                    margin: 10px;
+                    margin: 5px;
                     font-size: 0.7em;
                     font-family: "Roboto";
                 }
