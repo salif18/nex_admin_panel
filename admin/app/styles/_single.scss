@@ -1,12 +1,13 @@
-.single-commande{
+.single-commande {
     display: flex;
     align-items: center;
     flex-direction: column;
     background-color: #f0f1f5;
     padding: 10px;
     height: 100vh;
+
     //header
-    .single-header{
+    .single-header {
         width: 100%;
         background: #fff;
         display: flex;
@@ -14,113 +15,143 @@
         justify-content: space-between;
         padding: 15px;
         gap: 20px;
-        
-        h2{
+
+        h2 {
             font-size: 0.9em;
             font-family: "Roboto";
         }
 
-        .zone-status{
+        .zone-status {
             width: 20%;
             height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: green;
-            h2{
+
+            h2 {
                 font-size: 1em;
-                color:#f0f1f5;
+                color: #f0f1f5;
             }
         }
     }
+
     // infos 
-    .infos{
-       
+    .infos {
+        display: flex;
         align-items: center;
-        flex-wrap: wrap;
-      
+        padding: 20px;
+        gap: 20px;
         width: 100%;
-       
-        h2{
-            font-size: 0.6em;
+        background-color: #fff;
+        border-bottom: 1px solid green;
+
+        h2 {
+            font-size: 1em;
             font-family: "Roboto";
             color: grey;
         }
-        span{
-            font-size: 0.6em;
+
+        span {
+            font-size: 1em;
             font-family: "Roboto";
-            font-weight: 400;
+            font-weight: 600;
             color: gray;
         }
     }
-    //product items
-    .product-items{
-      width: 100%;
-      align-items: center;
-      flex-direction: column;
-      .card-item{
-        width: 100%;
-        flex-direction: column;
-        .left{
-         width: 100%;
-        
-         img{
-            width: 50px;
-            height: 50px;
-           
-         }
-         .column{
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            gap: 5px;
-            h2{
-                font-size: 0.6em;
-                font-family: "Roboto";
-            }
-         }
-        }
 
-        .rigth{
-            width: 100px;
-            
-            h2{
-                font-size: 0.6em;
-                font-family: "Roboto";
+    //product items
+    .product-items {
+        width: 100%;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .card-item {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #f0f1f5;
+
+            .left {
+                width: 100%;
+                margin: 10px;
+                display: flex;
+                gap: 10px;
+
+                img {
+                    width: 80px;
+                    height: 80px;
+                    background: #f0f1f5;
+                    border: 1px solid #f0f1f5;
+                }
+
+                .column {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    gap: 5px;
+
+                    h2 {
+                        font-size: 1em;
+                        font-family: "Roboto";
+                    }
+                }
             }
-            span{
-                font-family: "Roboto";
-                font-size: 0.6em;
-                color: grey;
-                font-weight: 400;
+
+            .rigth {
+                width: 100px;
+                margin: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+
+                h2 {
+                    font-size: 1em;
+                    font-family: "Roboto";
+                }
+
+                span {
+                    font-family: "Roboto";
+                    font-size: 1em;
+                    color: grey;
+                    font-weight: 600;
+                }
             }
         }
-      }
     }
 
     //address
-    .address{
+    .address {
         width: 100%;
         background-color: #fff;
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 15px;
+
         .left,
-        .rigth{
-            margin:15px;
+        .rigth {
+            margin: 15px;
             padding: 10px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             justify-content: flex-start;
-            h2{
+
+            h2 {
                 font-size: 1em;
                 font-family: "Roboto";
                 margin: 10px;
             }
-            span{
+
+            span {
                 margin: 10px;
                 font-size: 1em;
                 font-family: "Roboto";
@@ -131,137 +162,155 @@
 }
 
 @media (max-width:768px) {
-    .single-commande{
-        
+    .single-commande {
+
         //header
-        .single-header{
+        .single-header {
             width: 100%;
-           flex-direction: column;
-           align-items: center;
-            
-            h2{
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
                 font-size: 0.9em;
                 font-family: "Roboto";
             }
-    
-            .zone-status{
+
+            .zone-status {
                 width: 100%;
-                
-                h2{
-                    color:#f0f1f5;
+
+                h2 {
+                    font-size: 0.7em;
+                    color: #f0f1f5;
                 }
             }
         }
+
         // infos 
-        .infos{
+        .infos {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             padding: 20px;
             gap: 20px;
             width: 100%;
             background-color: #fff;
             border-bottom: 1px solid green;
-            h2{
-                font-size: 1em;
+
+            h2 {
+                font-size: 0.7em;
                 font-family: "Roboto";
                 color: grey;
             }
-            span{
-                font-size: 1em;
+
+            span {
+                font-size: 0.7em;
                 font-family: "Roboto";
                 font-weight: 600;
                 color: gray;
             }
         }
+
         //product items
-        .product-items{
-          width: 100%;
-          background-color: #fff;
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          .card-item{
+        .product-items {
             width: 100%;
+            background-color: #fff;
             display: flex;
             align-items: center;
-            justify-content: center;
             flex-direction: column;
-            gap: 20px;
-            background-color: #fff;
-            border-bottom: 1px solid #f0f1f5;
-            .left{
-             width: 100%;
-             margin: 10px;
-             display: flex;
-             gap: 10px;
-             img{
-                width: 80px;
-                height: 80px;
-                background: #f0f1f5;
-                border: 1px solid #f0f1f5;
-             }
-             .column{
+
+            .card-item {
+                width: 100%;
                 display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                gap: 5px;
-                h2{
-                    font-size: 1em;
-                    font-family: "Roboto";
+                align-items: start;
+                gap: 20px;
+                background-color: #fff;
+                border-bottom: 1px solid #f0f1f5;
+
+                .left {
+                    width: 100%;
+                    margin: 10px;
+                    display: flex;
+                    gap: 10px;
+
+                    img {
+                        width: 50px;
+                        height: 50px;
+                        background: #f0f1f5;
+                        border: 1px solid #f0f1f5;
+                    }
+
+                    .column {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        gap: 5px;
+
+                        h2 {
+                            font-size: 0.7em;
+                            font-family: "Roboto";
+                        }
+
+                        span {
+                            font-size: 0.7em;
+                            font-family: "Roboto";
+                        }
+                    }
                 }
-             }
+
+                .rigth {
+                    width: 100px;
+                    margin: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+
+                    h2 {
+                        font-size: 0.7em;
+                        font-family: "Roboto";
+                    }
+
+                    span {
+                        font-family: "Roboto";
+                        font-size: 0.7em;
+                        color: grey;
+                        font-weight: 600;
+                    }
+                }
             }
-    
-            .rigth{
-                width: 100px;
-                margin: 10px;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
-                h2{
-                    font-size: 1em;
-                    font-family: "Roboto";
-                }
-                span{
-                    font-family: "Roboto";
-                    font-size: 1em;
-                    color: grey;
-                    font-weight: 600;
-                }
-            }
-          }
         }
-    
+
         //address
-        .address{
+        .address {
             width: 100%;
             background-color: #fff;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 15px;
+
             .left,
-            .rigth{
-                margin:15px;
+            .rigth {
+                margin: 15px;
                 padding: 10px;
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
-                h2{
-                    font-size: 1em;
+                align-items: start;
+
+                h2 {
+                    font-size: 0.7em;
                     font-family: "Roboto";
                     margin: 10px;
                 }
-                span{
+
+                span {
                     margin: 10px;
-                    font-size: 1em;
+                    font-size: 0.7em;
                     font-family: "Roboto";
                 }
             }
         }
-    
+
     }
 }

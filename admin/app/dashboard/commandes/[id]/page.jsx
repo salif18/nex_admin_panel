@@ -12,9 +12,18 @@ const Single = () => {
         return <p>Commande non trouvée.</p>;
     }
 
-    const productItems = order.products.map((item) =>
-        fakedata.find((prod) => prod.id == item.id)
-    );
+    const productItems = order.products.map((item) => {
+        const article = fakedata.find((prod) => prod.id == item.id)
+        return article ? {
+            id: article.id,
+            name: article.name,
+            img: article.img,
+            qty: item.qty,
+            price: article.price,
+            color: item.color,
+            size: item.size
+        } : null
+    }).filter((item) => item !== null);
 
     return (
         <main className="single-commande">
@@ -41,13 +50,13 @@ const Single = () => {
                             <img src={item.img} alt='' />
                             <div className='column'>
                                 <h2>{item.name}</h2>
-                                <span>Size: M</span>
-                                <span>Color: blue</span>
+                                <span>Size: {item.size}</span>
+                                <span>Color: {item.color}</span>
                             </div>
                         </div>
                         <div className='rigth'>
-                            <h2>{item.price} XOF</h2>
-                            <span>Qty 2</span>
+                            <h2>{item.price} FCFA</h2>
+                            <span>Quantity {item.qty}</span>
                         </div>
                     </div>
                 ))}
