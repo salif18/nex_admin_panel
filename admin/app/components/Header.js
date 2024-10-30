@@ -7,7 +7,7 @@ const Header = () => {
     <header className="header">
       {/* SECTION TITRE DE LA PAGE */}
       <section className="section-title">
-      <h2 className="title">Administrator</h2>
+      <h2 className="title">Admin</h2>
         {/* <h1>La hadja</h1> */}
       </section>
       {/* SECTION NAVBAR LES LIENS DU SITES */}

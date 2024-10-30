@@ -149,19 +149,19 @@
         display: flex;
         align-items: flex-start;
         flex-direction: column;
-        gap: 5px;
-
+        margin: 20px;
+        padding: 15px;
         .row1,
         .row2 { 
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-
+          
             h2 {
                 font-size: 1em;
                 font-family: "Roboto";
-                margin: 10px;
+                margin:10px;
             }
 
             span {
@@ -169,6 +169,13 @@
                 font-size: 1em;
                 font-family: "Roboto";
             }
+        }
+
+        .row1{
+          
+           border-top: 2px solid orangered;
+           width: 100%;
+
         }
     }
 
