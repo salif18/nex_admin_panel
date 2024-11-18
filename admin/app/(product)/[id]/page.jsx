@@ -98,27 +98,27 @@ const UpdateProductForm = ({ productToEdit }) => {
     // Soumission des données
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const response = await fetch(`/api/products/${product.id}`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(product),
-            });
+        // try {
+        //     const response = await fetch(`/api/products/${product.id}`, {
+        //         method: "PUT",
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //         },
+        //         body: JSON.stringify(product),
+        //     });
 
-            if (response.ok) {
-                console.log("Produit mis à jour avec succès !");
-            } else {
-                console.error("Erreur lors de la mise à jour.");
-            }
-        } catch (error) {
-            console.error("Erreur :", error);
-        }
+        //     if (response.ok) {
+        //         console.log("Produit mis à jour avec succès !");
+        //     } else {
+        //         console.error("Erreur lors de la mise à jour.");
+        //     }
+        // } catch (error) {
+        //     console.error("Erreur :", error);
+        // }
     };
 
     return (
-        <main className="edit">
+        <main className="add">
             <form onSubmit={handleSubmit}>
                 <h2>Modifier un Produit</h2>
 
