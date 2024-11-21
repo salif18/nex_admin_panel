@@ -2,69 +2,79 @@
 import { useParams } from 'next/navigation'
 import orders from "@/app/lib/fakeorder";
 import fakedata from "@/app/lib/fakedata";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Single = () => {
     const { id } = useParams();
-    const order = orders.find((item) => item.id == id);
+    const [order , setOrder ] = useState({})
+   
+   
+    
+    const Headers = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer `,
+      },
+       }
 
-    if (!order) {
-        return <p>Commande non trouvée.</p>;
-    }
-
-    const productItems = order.products.map((item) => {
-        const article = fakedata.find((prod) => prod.id == item.id)
-        return article ? {
-            id: article.id,
-            name: article.name,
-            img: article.img,
-            qty: item.qty,
-            price: article.price,
-            color: item.color,
-            size: item.size
-        } : null
-    }).filter((item) => item !== null);
+   
+    useEffect(()=>{
+        const fecthData =async()=>{
+             try{
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/commandes/single/${id}`,Headers);
+                if(response.status == 200){
+                    console.log(response?.data?.order)
+                 setOrder(response?.data?.order)
+                }
+             }catch(e){
+               console.error(e.response?.data?.message || "error")
+             }
+        }
+        fecthData()
+    },[])
+    
 
     return (
         <main className="single-commande">
             <section className='single-header'>
-                <h2>La commande N°: {order.id}</h2>
+                <h2>La commande N°: {order?._id}</h2>
                 <section className='zone-status'>
-                    <h2>Status: {order.status}</h2>
+                    <h2>Status: {order?.status}</h2>
                 </section>
             </section>
             <section className='infos'>
                 <section className='row'>
                 <h2>Date</h2>
-                <span>{order.date}</span>
+                <span>{order?.createdAt}</span>
                 </section>
                 <section className='row'>
                 <h2>Client</h2>
-                <span>{order.user}</span>
+                <span>{order?.user?.nom}</span>
                 </section>
                 <section className='row'>
                 <h2>Numero</h2>
-                <span>{order.numero}</span>
+                <span>{order?.user?.numero}</span>
                 </section>
                 <section className='row'>
                 <h2>Email</h2>
-                <span>{order.email}</span>
+                <span>{order?.user?.email}</span>
                 </section>
             </section>
             <section className='product-items'>
-                {productItems.map((item, index) => item && (
-                    <div className='card-item' key={index}>
+                {order?.cart?.map((item) => item && (
+                    <div className='card-item' key={item.id}>
                         <div className='left'>
-                            <img src={item.img} alt='' />
+                            <img src={item?.image} alt='' />
                             <div className='column'>
-                                <h2>{item.name}</h2>
-                                <span>Size: {item.size}</span>
-                                <span>Color: {item.color}</span>
+                                <h2>{item?.name}</h2>
+                                {item.size && <span>Size: {item?.size}</span>}
+                                <div className='color'>Color: <div style={{background: item?.color}} className='colordiv' ></div> </div>
                             </div>
                         </div>
                         <div className='rigth'>
-                            <h2>{item.price} FCFA</h2>
-                            <span>Quantity {item.qty}</span>
+                            <h2>{item?.price} FCFA</h2>
+                            <span>Quantity {item?.qty}</span>
                         </div>
                     </div>
                 ))}
@@ -72,11 +82,11 @@ const Single = () => {
             <section className='address'>
                 <div className='row1'>
                     <h2>Total</h2>
-                    <span>{order.total} XOF</span>
+                    <span>{order?.total} XOF</span>
                 </div>
                 <div className='row2'>
                     <h2>Address</h2>
-                    <span>{order.address}</span>
+                    <span>{order?.address?.ville} Rue {order?.address?.rue} Logement {order?.address?.logt}</span>
                 </div>
             </section>
         </main>

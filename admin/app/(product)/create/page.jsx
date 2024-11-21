@@ -1,8 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const ProductForm = () => {
+    const [isValid , setIsValid ] = useState(true);
+    const [reponseServer, setReponseServer] = useState("");
     const [product, setProduct] = useState({
         name: "",
         category: "",
@@ -11,7 +14,9 @@ const ProductForm = () => {
         rating: "",
         description: "",
         price: "",
-        date: "",
+        is_promo: false,
+        promo_price: "",
+        discount_percentage: "",
         stockGlobal: 0, // Stock global pour l'ensemble du produit
         othersColors: [
             {
@@ -88,10 +93,46 @@ const ProductForm = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(product);
+            // Validation des champs
+     if (
+         !product.name || !product.category || 
+         !product.subCategory || !product.brand ||
+         !product.description || !product.price ||
+         !product.stockGlobal || !product.othersColors
+        ) {
+        setIsValid(false); // Affichez un message d'erreur à l'utilisateur
+        setReponseServer("Veuillez remplir les champs!")
+        return;
+        
+      }
+  
+        try {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_URI}/products`, product, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer `,
+                },
+            });
+            if (response.status === 201) {
+                console.log("Produit ajouté avec succès :", response.data);
+                setReponseServer(response.data.message)
+            }
+
+        } catch (error) {
+            console.error("Erreur lors de l'ajout du produit :", error.response?.data?.message || error.message);
+        }
+
     };
+
+
+    useEffect(() => {
+        if (reponseServer) {
+            const timer = setTimeout(() => setReponseServer(""), 3000)
+            return () => clearTimeout(timer)
+        }
+    }, [reponseServer])
 
     return (
         <main className="add">
@@ -144,6 +185,23 @@ const ProductForm = () => {
 
                 </div>
 
+                {/* Description */}
+                <div>
+                    <label>Description</label>
+                    <textarea
+                        name="description"
+                        value={product.description}
+                        onChange={handleInputChange}
+                    />
+                </div>
+
+                {/* Price */}
+                <div>
+                    <label>Price</label>
+                    <input type="number" name="price" value={product.price} onChange={handleInputChange} placeholder="Price" />
+
+                </div>
+
                 {/* Stock global */}
                 <div>
                     <label>Stock global</label>
@@ -162,7 +220,7 @@ const ProductForm = () => {
                         <div>
                             <label>Couleur</label>
                             <input
-                                type="text"
+                                type="color"
                                 name="color"
                                 value={color.color}
                                 onChange={(e) => handleColorChange(colorIndex, e)}

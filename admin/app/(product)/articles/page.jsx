@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import MoveToInBoxIcon from '@mui/icons-material/MoveToInbox';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import PlaylistRemoveRoundedIcon from '@mui/icons-material/PlaylistRemoveRounded';
@@ -7,10 +7,34 @@ import { useRouter } from 'next/navigation';
 import { DataGrid } from '@mui/x-data-grid';
 import fakedata from "@/app/lib/fakedata"
 import GeneredStarRating from '@/app/ui/GeneredStarRating';
+import axios from 'axios';
 
 const Products = () => {
     const router = useRouter()
     const [_searchValue, _setSearchValue] = useState("")
+    const [products , setProducts] = useState([])
+
+
+    useEffect(()=>{
+         const getProducts=async()=>{
+            try {
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/products`,{
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer `,
+                    },
+                });
+                if (response.status === 200) {
+                    console.log("Produit ajouté avec succès :", response.produits);
+                    setProducts(response.data.produits)
+                }
+    
+            } catch (error) {
+                console.error("Erreur lors de l'ajout du produit :", error.response?.data?.message || error.message);
+            }
+         }
+         getProducts()
+    },[])
 
 
      // FONTION DE NAVIGATION VERS UNE AUTRE PAGE
@@ -26,7 +50,7 @@ const Products = () => {
         stocks = stocks.filter((item)=> item.id != id)
     }
 
-    const _resultToSearch = fakedata.filter((e) =>
+    const _resultToSearch = products.filter((e) =>
         e.name.toLocaleLowerCase().startsWith(_searchValue.toLocaleLowerCase()) ||
         e.category.toLocaleLowerCase().startsWith(_searchValue.toLocaleLowerCase()) ||
         e.price == _searchValue ||
@@ -36,19 +60,19 @@ const Products = () => {
 
     //DEFINITION DES DIFFERENTES COLONNES POUR LE TABLEAU DE DATA GRID
     const columns = [
-        { field: "id", headerName: "ID", width: 20 },
+        { field: "_id", headerName: "ID", width: 20 },
         {
             field: "image", headerName: "Image", width: 150, renderCell: (params) => {
                 return (
                     <figure>
-                        <img src={params.row.img} alt={params.row.name} style={{ width: 50, height: 50 }} />
+                        <img src={params.row.image} alt={params.row.name} style={{ width: 50, height: 50 }} />
                     </figure>
                 )
             }
         },
         { field: "name", headerName: "Name", width: 150 },
         { field: 'category', headerName: 'Categorie', width: 150 },
-        { field: 'sousCategory', headerName: 'Subcategorie', width: 150 },
+        { field: 'subCategory', headerName: 'Subcategorie', width: 150 },
         { field: 'rating', headerName: 'Notes', width: 150,
             renderCell: (params) => 
             <>
@@ -56,8 +80,8 @@ const Products = () => {
             <span style={{marginLeft:10}}>({params.row.rating})</span>
             </>
          },
-        { field: 'date', headerName: 'Date', width: 150 },
-        { field: "stock", headerName: "Stock", width: 70 },
+        { field: 'createdAt', headerName: 'Date', width: 150 },
+        { field: "stockGlobal", headerName: "Stock", width: 70 },
         { field: "price", headerName: "Prix", width: 100 },
         {
             field: 'actions', headerName: 'Actions', width: 150,
@@ -99,8 +123,8 @@ const Products = () => {
             <article style={{ height: 550, width: "100%",fontSize:"1em",  marginTop:20,borderRadius:10, background:"#ffff"}}>
 
                 <DataGrid
-                    rows={!_searchValue ? fakedata : _resultToSearch}
-                    getRowId={(row) => row.id}
+                    rows={!_searchValue ? products : _resultToSearch}
+                    getRowId={(row) => row._id}
                     disableSelectionOnclick
                     columns={columns}
                     pageSize={10}

@@ -49,25 +49,26 @@
         width: 100%;
         background-color: #fff;
         border-bottom: 1px solid green;
- .row{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-   
-        h2 {
-            font-size: 0.8em;
-            font-family: "Roboto";
-            color: #222222;
-        }
 
-        span {
-            font-size: 0.8em;
-            font-family: "Roboto";
-            font-weight: 400;
-            color: gray;
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+
+            h2 {
+                font-size: 0.8em;
+                font-family: "Roboto";
+                color: #222222;
+            }
+
+            span {
+                font-size: 0.8em;
+                font-family: "Roboto";
+                font-weight: 400;
+                color: gray;
+            }
         }
- }
     }
 
     //product items
@@ -111,12 +112,27 @@
                         font-size: 0.8em;
                         font-family: "Roboto";
                     }
+
                     span {
-                    font-family: "Roboto";
-                    font-size: 0.8em;
-                    color: grey;
-                    font-weight: 400;
-                }
+                        font-family: "Roboto";
+                        font-size: 0.8em;
+                        color: grey;
+                        font-weight: 400;
+                    }
+
+                    .color {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        font-size: 0.8em;
+                        font-family: "Roboto";
+                        .colordiv {
+                            width: 15px;
+                            height: 15px;
+                            border-radius: 100%;
+                         
+                        }
+                    }
                 }
             }
 
@@ -153,17 +169,18 @@
         flex-direction: column;
         margin: 20px;
         padding: 15px;
+
         .row1,
-        .row2 { 
+        .row2 {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-          
+
             h2 {
                 font-size: 1em;
                 font-family: "Roboto";
-                margin:10px;
+                margin: 10px;
             }
 
             span {
@@ -173,10 +190,10 @@
             }
         }
 
-        .row1{
-          
-           border-top: 2px solid orangered;
-           width: 100%;
+        .row1 {
+
+            border-top: 2px solid orangered;
+            width: 100%;
 
         }
     }
@@ -208,31 +225,32 @@
         }
 
         // infos 
-         .infos {
-        display: flex;
-        align-items: start;
-        flex-direction: column;
-        padding: 20px;
-        gap: 20px;
-        width: 100%;
-        background-color: #fff;
-        border-bottom: 1px solid green;
- .row{
-   
-        h2 {
-            font-size: 0.7em;
-            font-family: "Roboto";
-            color: #222222;
-        }
+        .infos {
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+            padding: 20px;
+            gap: 20px;
+            width: 100%;
+            background-color: #fff;
+            border-bottom: 1px solid green;
 
-        span {
-            font-size: 0.7em;
-            font-family: "Roboto";
-            font-weight: 400;
-            color: gray;
+            .row {
+
+                h2 {
+                    font-size: 0.7em;
+                    font-family: "Roboto";
+                    color: #222222;
+                }
+
+                span {
+                    font-size: 0.7em;
+                    font-family: "Roboto";
+                    font-weight: 400;
+                    color: gray;
+                }
+            }
         }
- }
-    }
 
         //product items
         .product-items {
@@ -316,10 +334,10 @@
 
             .row1,
             .row2 {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
 
                 h2 {
                     font-size: 0.7em;
