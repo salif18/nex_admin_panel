@@ -4,7 +4,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const ProductForm = () => {
-    const [isValid , setIsValid ] = useState(true);
+    const [isValid, setIsValid] = useState(true);
     const [reponseServer, setReponseServer] = useState("");
     const [product, setProduct] = useState({
         name: "",
@@ -27,6 +27,20 @@ const ProductForm = () => {
                     { size: "S", stock: 0 },
                     { size: "M", stock: 0 },
                     { size: "L", stock: 0 },
+                    { size: "X", stock: 0 },
+                    { size: "XS", stock: 0 },
+                    { size: "XL", stock: 0 },
+                    { size: "28", stock: 0 },
+                    { size: "30", stock: 0 },
+                    { size: "32", stock: 0 },
+                    { size: "34", stock: 0 },
+                    { size: "36", stock: 0 },
+                    { size: "38", stock: 0 },
+                    { size: "40", stock: 0 },
+                    { size: "42", stock: 0 },
+                    { size: "44", stock: 0 },
+                    { size: "46", stock: 0 },
+                    { size: "48", stock: 0 },
                 ], // Stock pour chaque taille
             },
         ],
@@ -77,6 +91,20 @@ const ProductForm = () => {
                         { size: "S", stock: 0 },
                         { size: "M", stock: 0 },
                         { size: "L", stock: 0 },
+                        { size: "X", stock: 0 },
+                        { size: "XS", stock: 0 },
+                        { size: "XL", stock: 0 },
+                        { size: "28", stock: 0 },
+                        { size: "30", stock: 0 },
+                        { size: "32", stock: 0 },
+                        { size: "34", stock: 0 },
+                        { size: "36", stock: 0 },
+                        { size: "38", stock: 0 },
+                        { size: "40", stock: 0 },
+                        { size: "42", stock: 0 },
+                        { size: "44", stock: 0 },
+                        { size: "46", stock: 0 },
+                        { size: "48", stock: 0 },
                     ],
                 },
             ],
@@ -95,19 +123,19 @@ const ProductForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-            // Validation des champs
-     if (
-         !product.name || !product.category || 
-         !product.subCategory || !product.brand ||
-         !product.description || !product.price ||
-         !product.stockGlobal || !product.othersColors
+        // Validation des champs
+        if (
+            !product.name || !product.category ||
+            !product.subCategory || !product.brand ||
+            !product.description || !product.price ||
+            !product.stockGlobal || !product.othersColors
         ) {
-        setIsValid(false); // Affichez un message d'erreur à l'utilisateur
-        setReponseServer("Veuillez remplir les champs!")
-        return;
-        
-      }
-  
+            setIsValid(false); // Affichez un message d'erreur à l'utilisateur
+            setReponseServer("Veuillez remplir les champs!")
+            return;
+
+        }
+
         try {
             const response = await axios.post(`${process.env.NEXT_PUBLIC_URI}/products`, product, {
                 headers: {
@@ -251,18 +279,28 @@ const ProductForm = () => {
                         {(product.category === "Vêtements" || product.category === "Chaussures") && (
                             <div>
                                 <label>Stock par taille</label>
-                                {color.sizes.map((sizeData, sizeIndex) => (
-                                    <div className="size-section" key={sizeIndex}>
-                                        <label>{sizeData.size}</label>
-                                        <input
-                                            type="number"
-                                            value={sizeData.stock}
-                                            onChange={(e) => handleSizeStockChange(colorIndex, sizeIndex, e)}
-                                        />
-                                    </div>
-                                ))}
+                                {color.sizes
+                                    .filter((sizeData) => {
+                                        // Si la catégorie est "Chaussures", afficher uniquement les tailles numériques
+                                        if (product.category === "Chaussures") {
+                                            return !isNaN(sizeData.size); // Filtrer uniquement les valeurs numériques
+                                        }
+                                        // Sinon, afficher toutes les tailles
+                                        return true;
+                                    })
+                                    .map((sizeData, sizeIndex) => (
+                                        <div className="size-section" key={sizeIndex}>
+                                            <label>{sizeData.size}</label>
+                                            <input
+                                                type="number"
+                                                value={sizeData.stock}
+                                                onChange={(e) => handleSizeStockChange(colorIndex, sizeIndex, e)}
+                                            />
+                                        </div>
+                                    ))}
                             </div>
                         )}
+
 
                         <button type="button" onClick={() => handleRemoveColor(colorIndex)}>
                             Supprimer cette couleur

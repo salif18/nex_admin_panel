@@ -46,7 +46,7 @@ const Single = () => {
             <section className='infos'>
                 <section className='row'>
                 <h2>Date</h2>
-                <span>{order?.createdAt}</span>
+                <span>{new Date(order?.createdAt).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                 </section>
                 <section className='row'>
                 <h2>Client</h2>

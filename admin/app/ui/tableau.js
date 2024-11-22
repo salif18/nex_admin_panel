@@ -34,7 +34,7 @@ const Tableau = ({ order }) => {
                 <td>{order?._id}</td>
                 <td>{order?.total} FCFA</td>
                 <td style={{ color: order?.status === "Livrée" && "green" || order?.status === "Annulée" && "red" || order?.status === "En attente" && "blue" }}>{order.status}</td>
-                <td>{order?.createdAt}</td>
+                <td>{new Date(order?.createdAt).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })}</td>
                 <td className='actions'>
                     <section className='btns-action'>
                         <VisibilityIcon className='view' onClick={handleNavigueToSingle} />

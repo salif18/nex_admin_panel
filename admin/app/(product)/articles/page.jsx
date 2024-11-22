@@ -80,7 +80,10 @@ const Products = () => {
             <span style={{marginLeft:10}}>({params.row.rating})</span>
             </>
          },
-        { field: 'createdAt', headerName: 'Date', width: 150 },
+        { field: 'createdAt', headerName: 'Date', width: 150,
+            renderCell:(params)=>
+               <span>{new Date(params.row.createdAt).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })}</span> 
+         },
         { field: "stockGlobal", headerName: "Stock", width: 70 },
         { field: "price", headerName: "Prix", width: 100 },
         {
