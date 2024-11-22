@@ -1,13 +1,11 @@
 "use client"
 import { useParams } from 'next/navigation'
-import orders from "@/app/lib/fakeorder";
-import fakedata from "@/app/lib/fakedata";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Single = () => {
     const { id } = useParams();
-    const [order , setOrder ] = useState({})
+    const [order , setOrder ] = useState(null)
    
    
     
@@ -68,7 +66,7 @@ const Single = () => {
                             <img src={item?.image} alt='' />
                             <div className='column'>
                                 <h2>{item?.name}</h2>
-                                {item.size && <span>Size: {item?.size}</span>}
+                                {item?.size && <span>Size: {item?.size}</span>}
                                 <div className='color'>Color: <div style={{background: item?.color}} className='colordiv' ></div> </div>
                             </div>
                         </div>
@@ -86,7 +84,7 @@ const Single = () => {
                 </div>
                 <div className='row2'>
                     <h2>Address</h2>
-                    <span>{order?.address?.ville} Rue {order?.address?.rue} Logement {order?.address?.logt}</span>
+                    <span>{order?.address?.ville} Rue: {order?.address?.rue} Logement: {order?.address?.logt}</span>
                 </div>
             </section>
         </main>
