@@ -88,7 +88,10 @@ const Products = () => {
         { field: "price", headerName: "Prix", width: 100 },
         { field: 'is_promo', headerName: 'Promotion', width: 100 },
         { field: 'promo_price', headerName: 'Prix de promo', width: 150 },
-        { field: 'discount_percentage', headerName: 'Le pourcentage', width: 150 },
+        { field: 'discount_percentage', headerName: 'Le pourcentage', width: 150 ,
+            renderCell:(params)=>
+                <span>-{params.row.discount_percentage || 0}% </span> 
+         },
         {
             field: 'actions', headerName: 'Actions', width: 150,
             renderCell: (params) => {
