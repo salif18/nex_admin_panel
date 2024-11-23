@@ -270,6 +270,43 @@ const UpdateProductForm = () => {
                     <input type="text" name="brand" value={product.brand} onChange={handleInputChange} />
                 </div>
 
+                  {/* Description */}
+                  <div>
+                    <label>Description</label>
+                    <input type="text" name="description" value={product.description} onChange={handleInputChange} />
+                </div>
+
+                  {/* Price*/}
+                  <div>
+                    <label>Price</label>
+                    <input type="number" name="price" value={product.price} onChange={handleInputChange} />
+                </div>
+
+                  {/* promo */}
+                  <div>
+                    <label>Promo</label>
+                    <select
+                        name="is_promo"
+                        value={product.is_promo}
+                        onChange={handleInputChange}
+                    >
+                        <option value="">Sélectionner une option </option>
+                        <option value="true">En promo</option>
+                        <option value="false">Pas de promo</option>
+                    </select>
+                </div>
+
+                 {/* Price promo*/}
+                 <div>
+                    <label>Price promo</label>
+                    <input type="number" name="promo_price" value={product.promo_price} onChange={handleInputChange} />
+                </div>
+
+ {/* pourcentage*/}
+ <div>
+                    <label>Pourcentage de promo</label>
+                    <input type="number" name="discount_percentage" value={product.discount_percentage} onChange={handleInputChange} />
+                </div>
                 {/* Stock global */}
                 <div>
                     <label>Stock global</label>

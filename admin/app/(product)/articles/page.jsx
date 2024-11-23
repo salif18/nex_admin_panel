@@ -54,7 +54,7 @@ const Products = () => {
         e.name.toLocaleLowerCase().startsWith(_searchValue.toLocaleLowerCase()) ||
         e.category.toLocaleLowerCase().startsWith(_searchValue.toLocaleLowerCase()) ||
         e.price == _searchValue ||
-        e.stock == _searchValue
+        e.stock == _searchValue 
     );
 
 
@@ -86,6 +86,9 @@ const Products = () => {
          },
         { field: "stockGlobal", headerName: "Stock", width: 70 },
         { field: "price", headerName: "Prix", width: 100 },
+        { field: 'is_promo', headerName: 'Promotion', width: 100 },
+        { field: 'promo_price', headerName: 'Prix de promo', width: 150 },
+        { field: 'discount_percentage', headerName: 'Le pourcentage', width: 150 },
         {
             field: 'actions', headerName: 'Actions', width: 150,
             renderCell: (params) => {
