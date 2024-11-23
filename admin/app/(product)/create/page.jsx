@@ -111,6 +111,46 @@ const ProductForm = () => {
         }));
     };
 
+    const initialProductState = {
+        name: "",
+        category: "",
+        subCategory: "",
+        brand: "",
+        rating: "",
+        description: "",
+        price: "",
+        is_promo: false,
+        promo_price: "",
+        discount_percentage: "",
+        stockGlobal: 0,
+        othersColors: [
+            {
+                color: "",
+                images: "",
+                stock: 0,
+                sizes: [
+                    { size: "S", stock: 0 },
+                    { size: "M", stock: 0 },
+                    { size: "L", stock: 0 },
+                    { size: "X", stock: 0 },
+                    { size: "XS", stock: 0 },
+                    { size: "XL", stock: 0 },
+                    { size: "28", stock: 0 },
+                    { size: "30", stock: 0 },
+                    { size: "32", stock: 0 },
+                    { size: "34", stock: 0 },
+                    { size: "36", stock: 0 },
+                    { size: "38", stock: 0 },
+                    { size: "40", stock: 0 },
+                    { size: "42", stock: 0 },
+                    { size: "44", stock: 0 },
+                    { size: "46", stock: 0 },
+                    { size: "48", stock: 0 },
+                ],
+            },
+        ],
+    };
+
     // Supprime une couleur spécifique
     const handleRemoveColor = (index) => {
         const updatedColors = [...product.othersColors];
@@ -145,7 +185,9 @@ const ProductForm = () => {
             });
             if (response.status === 201) {
                 console.log("Produit ajouté avec succès :", response.data);
-                setReponseServer(response.data.message)
+                setReponseServer(response?.data?.message)
+                // Réinitialiser les champs après l'envoi
+                setProduct(initialProductState);
             }
 
         } catch (error) {
@@ -312,7 +354,7 @@ const ProductForm = () => {
                     Ajouter une autre couleur
                 </button>
 
-                <button type="submit">Ajouter le produit</button>
+                <button type="submit">{reponseServer || "Ajouter le produit"}</button>
             </form>
         </main>
     );

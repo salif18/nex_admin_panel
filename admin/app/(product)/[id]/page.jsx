@@ -1,8 +1,13 @@
 "use client";
 
+import axios from "axios";
+import { useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
-const UpdateProductForm = ({ productToEdit }) => {
+const UpdateProductForm = () => {
+    const { id } = useParams()
+    const [responseServer, setReponseServer] = useState("")
+
     const [product, setProduct] = useState({
         name: "",
         category: "",
@@ -11,28 +16,61 @@ const UpdateProductForm = ({ productToEdit }) => {
         rating: "",
         description: "",
         price: "",
-        date: "",
-        stockGlobal: 0,
+        is_promo: false,
+        promo_price: "",
+        discount_percentage: "",
+        stockGlobal: 0, // Stock global pour l'ensemble du produit
         othersColors: [
             {
                 color: "",
                 images: "",
-                stock: 0,
+                stock: 0, // Stock spécifique pour cette couleur
                 sizes: [
                     { size: "S", stock: 0 },
                     { size: "M", stock: 0 },
                     { size: "L", stock: 0 },
-                ],
+                    { size: "X", stock: 0 },
+                    { size: "XS", stock: 0 },
+                    { size: "XL", stock: 0 },
+                    { size: "28", stock: 0 },
+                    { size: "30", stock: 0 },
+                    { size: "32", stock: 0 },
+                    { size: "34", stock: 0 },
+                    { size: "36", stock: 0 },
+                    { size: "38", stock: 0 },
+                    { size: "40", stock: 0 },
+                    { size: "42", stock: 0 },
+                    { size: "44", stock: 0 },
+                    { size: "46", stock: 0 },
+                    { size: "48", stock: 0 },
+                ], // Stock pour chaque taille
             },
         ],
     });
 
-    // Charger les données du produit à modifier
+    
+    //recuperer le produit et les recommandations
     useEffect(() => {
-        if (productToEdit) {
-            setProduct(productToEdit);
-        }
-    }, [productToEdit]);
+        const getProducts = async () => {
+            try {
+                const res = await axios.get(`${process.env.NEXT_PUBLIC_URI}/products/single/${id}`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer `, // Ajoutez le token si nécessaire
+                    },
+                });
+                if (res.status === 200) {
+                    setProduct(res.data.produit);
+                    console.log(res.data.produit)
+                }
+
+            } catch (err) {
+                console.log("Erreur lors de la récupération du produit :", err);
+            }
+        };
+
+        getProducts();
+    }, [id]);
 
     // Met à jour les champs du produit général
     const handleInputChange = (e) => {
@@ -79,6 +117,20 @@ const UpdateProductForm = ({ productToEdit }) => {
                         { size: "S", stock: 0 },
                         { size: "M", stock: 0 },
                         { size: "L", stock: 0 },
+                        { size: "X", stock: 0 },
+                        { size: "XS", stock: 0 },
+                        { size: "XL", stock: 0 },
+                        { size: "28", stock: 0 },
+                        { size: "30", stock: 0 },
+                        { size: "32", stock: 0 },
+                        { size: "34", stock: 0 },
+                        { size: "36", stock: 0 },
+                        { size: "38", stock: 0 },
+                        { size: "40", stock: 0 },
+                        { size: "42", stock: 0 },
+                        { size: "44", stock: 0 },
+                        { size: "46", stock: 0 },
+                        { size: "48", stock: 0 },
                     ],
                 },
             ],
@@ -95,27 +147,78 @@ const UpdateProductForm = ({ productToEdit }) => {
         }));
     };
 
+    const initialProductState = {
+        name: "",
+        category: "",
+        subCategory: "",
+        brand: "",
+        rating: "",
+        description: "",
+        price: "",
+        is_promo: false,
+        promo_price: "",
+        discount_percentage: "",
+        stockGlobal: 0,
+        othersColors: [
+            {
+                color: "",
+                images: "",
+                stock: 0,
+                sizes: [
+                    { size: "S", stock: 0 },
+                    { size: "M", stock: 0 },
+                    { size: "L", stock: 0 },
+                    { size: "X", stock: 0 },
+                    { size: "XS", stock: 0 },
+                    { size: "XL", stock: 0 },
+                    { size: "28", stock: 0 },
+                    { size: "30", stock: 0 },
+                    { size: "32", stock: 0 },
+                    { size: "34", stock: 0 },
+                    { size: "36", stock: 0 },
+                    { size: "38", stock: 0 },
+                    { size: "40", stock: 0 },
+                    { size: "42", stock: 0 },
+                    { size: "44", stock: 0 },
+                    { size: "46", stock: 0 },
+                    { size: "48", stock: 0 },
+                ],
+            },
+        ],
+    };
+
     // Soumission des données
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // try {
-        //     const response = await fetch(`/api/products/${product.id}`, {
-        //         method: "PUT",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify(product),
-        //     });
+          // Validation des champs
+        
+        try {
+            const response = await axios.put(`${process.env.NEXT_PUBLIC_URI}/products/single/${id}`, product, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer `,
+                },
+            });
+            if (response.status === 200) {
+                console.log("Produit ajouté avec succès :", response.data);
+                setReponseServer(response?.data?.message)
+                 // Réinitialiser les champs après l'envoi
+                 setProduct(initialProductState);
+            }
 
-        //     if (response.ok) {
-        //         console.log("Produit mis à jour avec succès !");
-        //     } else {
-        //         console.error("Erreur lors de la mise à jour.");
-        //     }
-        // } catch (error) {
-        //     console.error("Erreur :", error);
-        // }
+        } catch (error) {
+            console.error("Erreur lors de l'ajout du produit :", error.response?.data?.message || error.message);
+        }
     };
+
+
+    useEffect(() => {
+        if (responseServer) {
+            const timer = setTimeout(() => setReponseServer(""), 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [responseServer]);
+
 
     return (
         <main className="add">
@@ -239,7 +342,7 @@ const UpdateProductForm = ({ productToEdit }) => {
                     Ajouter une autre couleur
                 </button>
 
-                <button type="submit">Mettre à jour le produit</button>
+                <button type="submit">{responseServer || "Mettre à jour le produit"}</button>
             </form>
         </main>
     );

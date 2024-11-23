@@ -45,8 +45,6 @@ const Commandes = () => {
     { id: 3, value: "Annulée" },
   ];
 
-  
- 
   return (
     <main className="commandes">
       <section className="commande-header">

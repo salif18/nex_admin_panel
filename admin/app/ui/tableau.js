@@ -31,7 +31,7 @@ const Tableau = ({ order }) => {
 
         <tbody>
             <tr>
-                <td>{order?._id}</td>
+                <td>{order?._id.split("").slice(0,8)}</td>
                 <td>{order?.total} FCFA</td>
                 <td style={{ color: order?.status === "Livrée" && "green" || order?.status === "Annulée" && "red" || order?.status === "En attente" && "blue" }}>{order.status}</td>
                 <td>{new Date(order?.createdAt).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })}</td>

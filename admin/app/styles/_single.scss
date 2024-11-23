@@ -69,6 +69,27 @@
                 color: gray;
             }
         }
+
+        .cancel,
+        .livrer {
+            width: 20%;
+            border: none;
+            font-family: "Roboto";
+            font-size: 0.7rem;
+            color: #f0f1f5;
+            height: 30px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        
+        .cancel {
+            background-color: red;
+        }
+
+        .livrer {
+            background-color: green;
+        }
     }
 
     //product items

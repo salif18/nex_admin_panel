@@ -91,8 +91,8 @@ const Products = () => {
             renderCell: (params) => {
                 return (
                     <section>
-                        <EditRoundedIcon style={{fontSize:22, color: "blue", margin:10}} onClick={() => handleNavigueTo(params.row.id)}  />
-                        <PlaylistRemoveRoundedIcon style={{fontSize:22, color:"red", margin:10}} onClick={() => handleDeleteProduct(params.row.id)}  />
+                        <EditRoundedIcon style={{fontSize:22, color: "blue", margin:10}} onClick={() => handleNavigueTo(params?.row?._id)}  />
+                        <PlaylistRemoveRoundedIcon style={{fontSize:22, color:"red", margin:10}} onClick={() => handleDeleteProduct(params?.row?._id)}  />
                     </section>
                 )
             }
@@ -100,6 +100,7 @@ const Products = () => {
 
     ];
 
+    
     return (
         <main className="product">
             {/* LA PARTIE HEADER DE LA PAGE */}

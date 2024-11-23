@@ -32,6 +32,18 @@ const Single = () => {
         fecthData()
     },[])
     
+    
+  const handleChangeStatus =async(newStatus)=>{
+    try{
+       const response = await  axios.put(`${process.env.NEXT_PUBLIC_URI}/commandes/order/${id}/updateStatus`, {newStatus}, Headers);
+       if(response.status === 200){
+        console.log(response?.data?.message)
+       }
+    }catch(e){
+    console.log(e.response?.data?.message || "error")
+    }
+}
+ 
 
     return (
         <main className="single-commande">
@@ -42,6 +54,8 @@ const Single = () => {
                 </section>
             </section>
             <section className='infos'>
+            {order?.status === "En attente" && <button className='cancel' onClick={()=>handleChangeStatus("Annulée")}>Annuler</button> }
+            {order?.status === "En attente" && <button className='livrer' onClick={()=>handleChangeStatus("Livrée")} >Livrer</button> }
                 <section className='row'>
                 <h2>Date</h2>
                 <span>{new Date(order?.createdAt).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
