@@ -297,10 +297,10 @@ const UpdateProductForm = () => {
                 </div>
 
                  {/* Price promo*/}
-                 <div>
+                 {/* <div>
                     <label>Price promo</label>
                     <input type="number" name="promo_price" value={product.promo_price} onChange={handleInputChange} />
-                </div>
+                </div> */}
 
  {/* pourcentage*/}
  <div>

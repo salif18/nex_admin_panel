@@ -82,10 +82,11 @@ const Single = () => {
                                 <h2>{item?.name}</h2>
                                 {item?.size && <span>Size: {item?.size}</span>}
                                 <div className='color'>Color: <div style={{background: item?.color}} className='colordiv' ></div> </div>
+                                <h2 style={{color:"red"}}>{item?.is_promo && "En promo"}</h2>
                             </div>
                         </div>
                         <div className='rigth'>
-                            <h2>{item?.price} FCFA</h2>
+                            <h2>{ item?.price} FCFA</h2>
                             <span>Quantity {item?.qty}</span>
                         </div>
                     </div>
