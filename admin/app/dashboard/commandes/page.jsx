@@ -2,7 +2,6 @@
 
 import Tableau from '@/app/ui/tableau';
 import React, { useEffect, useState } from 'react';
-import orders from "@/app/lib/fakeorder";
 import axios from 'axios';
 
 const Commandes = () => {
@@ -29,7 +28,7 @@ const Commandes = () => {
             }
        }
        fecthData()
-  },[])
+  },[orders])
 
 
  

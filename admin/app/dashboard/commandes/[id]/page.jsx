@@ -48,7 +48,7 @@ const Single = () => {
     return (
         <main className="single-commande">
             <section className='single-header'>
-                <h2>La commande N°: {order?._id}</h2>
+                <h2>La commande N°: {order?._id.split("").slice(0,8)}</h2>
                 <section className='zone-status'>
                     <h2>Status: {order?.status}</h2>
                 </section>
@@ -58,7 +58,7 @@ const Single = () => {
             {order?.status === "En attente" && <button className='livrer' onClick={()=>handleChangeStatus("Livrée")} >Livrer</button> }
                 <section className='row'>
                 <h2>Date</h2>
-                <span>{new Date(order?.createdAt).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+                {order?.createdAt && <span>{new Date(order?.createdAt).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })}</span>}
                 </section>
                 <section className='row'>
                 <h2>Client</h2>
@@ -86,7 +86,7 @@ const Single = () => {
                             </div>
                         </div>
                         <div className='rigth'>
-                            <h2>{ item?.price} FCFA</h2>
+                            <h2>{ item?.price * item?.qty} FCFA</h2>
                             <span>Quantity {item?.qty}</span>
                         </div>
                     </div>
@@ -94,12 +94,16 @@ const Single = () => {
             </section>
             <section className='address'>
                 <div className='row1'>
-                    <h2>Total</h2>
-                    <span>{order?.total} XOF</span>
+                    <h2>Total - frais de transport</h2>
+                    <div className='total-container'>
+                    {order?.total && <span> {order?.total} FCFA</span>}
+                    {order?.total && <span> - 1000 FCFA </span>}
+                    {order?.total && <span> {order?.total - 1000} FCFA</span>}
+                    </div>
                 </div>
                 <div className='row2'>
                     <h2>Address</h2>
-                    <span>{order?.address?.ville} Rue: {order?.address?.rue} Logement: {order?.address?.logt}</span>
+                    {order?.address?.ville && <span>{order?.address?.ville} Rue: {order?.address?.rue} Logement: {order?.address?.logt}</span>}
                 </div>
             </section>
         </main>
