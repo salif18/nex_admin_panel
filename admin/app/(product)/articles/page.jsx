@@ -46,9 +46,24 @@ const Products = () => {
         router.push(`/${id}`)
     }
 
-    const handleDeleteProduct=(id)=>{
-        stocks = stocks.filter((item)=> item.id != id)
-    }
+    const handleDeleteProduct=async(id)=>{
+        try {
+            const response = await axios.delete(`${process.env.NEXT_PUBLIC_URI}/products/single/${id}`,{
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer `,
+                },
+            });
+            if (response.status === 200) {
+                console.log("Produit supprime avec succès :", response.produits);
+                setProducts(response.data.produits)
+            }
+
+        } catch (error) {
+            console.error("Erreur lors de l'ajout du produit :", error.response?.data?.message || error.message);
+        }
+     }
+    
 
     const _resultToSearch = products.filter((e) =>
         e.name.toLocaleLowerCase().startsWith(_searchValue.toLocaleLowerCase()) ||
