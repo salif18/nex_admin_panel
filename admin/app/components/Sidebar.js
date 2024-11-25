@@ -18,10 +18,10 @@ const Sidebar = () => {
   const navlinks = [
     { name: "Dashboard", href: "/", icon: AppsIcon },
     { name: "Entrepôt", href: "/articles", icon: AccountBalanceIcon },
-    { name: "Categories", href: "/dashboard/categories", icon: CategoryIcon },
+    // { name: "Categories", href: "/dashboard/categories", icon: CategoryIcon },
     { name: "Marques", href: "/dashboard/marques", icon: BookmarksIcon },
     { name: "Commandes", href: "/dashboard/commandes", icon: ShoppingBagRoundedIcon },
-    { name: "Livreurs", href: "/dashboard/livreurs", icon: MopedRoundedIcon },
+    // { name: "Livreurs", href: "/dashboard/livreurs", icon: MopedRoundedIcon },
   ];
 
   const [elargirSidebar , setElargirSideBar] = useState(false);
