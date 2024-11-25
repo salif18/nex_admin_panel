@@ -4,22 +4,6 @@ import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import Groups2Icon from '@mui/icons-material/Groups2';
 const Widget7 = ({produits}) => {
 
-  const stockEnd = [
-    {
-      id: 1,
-      name: "Nivea",
-      img: "https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/82/461016/1.jpg?4084",
-      categorie: "Parfum",
-      achat: 101
-    },
-    {
-      id: 2,
-      name: "Nivea",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8GjBjJVJcaf9oloAoWNCSEVS-HbjNHKaQBQ&s",
-      categorie: 'Lait',
-      achat: 150
-    }
-  ]
   
   return (
     <article className='widget7'>
@@ -33,7 +17,7 @@ const Widget7 = ({produits}) => {
           {
             produits.map((element) =>
 
-              <li key={element.id}>
+              <li key={element._id}>
                 <article>
                   <figure>
                     <img className='img' src={element.image} style={{ width: 50, height: 50 }} alt="" />

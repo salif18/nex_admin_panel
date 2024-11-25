@@ -3,22 +3,6 @@ import React from 'react'
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 const Widget6 = ({stockEpuise}) => {
 
-  const stockEnd = [
-    {
-      id:1,
-      name:"Nivea",
-      img: "https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/82/461016/1.jpg?4084",
-      categorie:"Parfum",
-      stock:0
-    },
-    {
-      id:2,
-      name:"Nivea",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8GjBjJVJcaf9oloAoWNCSEVS-HbjNHKaQBQ&s",
-      categorie:'Lait',
-      stock:0
-    }
-  ]
   return (
     <article className='widget6'>
       <section className='title-row'>
