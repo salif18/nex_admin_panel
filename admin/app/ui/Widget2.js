@@ -1,6 +1,6 @@
 import React from 'react'
 import PaidRoundedIcon from '@mui/icons-material/PaidRounded';
-const Widget2 = () => {
+const Widget2 = ({totalRevenu}) => {
   return (
     <article className='widget2'>
       <section className='widget2-content'>
@@ -8,7 +8,7 @@ const Widget2 = () => {
         <PaidRoundedIcon className='icon' />
       </section>
 
-      <p>520 352 FCFA</p>
+      <p>{totalRevenu} FCFA</p>
     </article>
   )
 }

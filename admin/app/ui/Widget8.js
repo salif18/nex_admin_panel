@@ -1,6 +1,6 @@
 import React from 'react'
 import GroupIcon from '@mui/icons-material/Group';
-const Widget8 = () => {
+const Widget8 = ({count}) => {
   return (
     <article className='widget8'>
       <section className='widget8-content'>
@@ -8,7 +8,7 @@ const Widget8 = () => {
         <GroupIcon className='icon' />
       </section>
 
-      <p>12k</p>
+      <p>{count}</p>
     </article>
   )
 }

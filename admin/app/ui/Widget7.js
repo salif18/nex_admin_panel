@@ -2,7 +2,7 @@ import React from 'react'
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import Groups2Icon from '@mui/icons-material/Groups2';
-const Widget7 = () => {
+const Widget7 = ({produits}) => {
 
   const stockEnd = [
     {
@@ -31,12 +31,12 @@ const Widget7 = () => {
       <section className='widget7-article'>
         <ul>
           {
-            stockEnd.map((element) =>
+            produits.map((element) =>
 
               <li key={element.id}>
                 <article>
                   <figure>
-                    <img className='img' src={element.img} style={{ width: 50, height: 50 }} alt="" />
+                    <img className='img' src={element.image} style={{ width: 50, height: 50 }} alt="" />
                   </figure>
                   <section className='row'>
                     <section className='column'>

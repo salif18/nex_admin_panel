@@ -1,7 +1,7 @@
 
 import React from 'react'
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
-const Widget6 = () => {
+const Widget6 = ({stockEpuise}) => {
 
   const stockEnd = [
     {
@@ -29,21 +29,21 @@ const Widget6 = () => {
       <section className='widget6-article'>
        <ul>
         {
-          stockEnd.map((element)=>
+          stockEpuise.map((element)=>
             
               <li key={element.id}>
                 <article>
                   <figure>
-                    <img className='img' src={element.img} style={{width:50, height:50}} alt="" />
+                    <img className='img' src={element.image} style={{width:50, height:50}} alt="" />
                   </figure>
                   <section className='row'>
                     <section className='column'>
                     <h2>{element.name} </h2>
-                    <p>{element.categorie}</p>
+                    <p>{element.category}</p>
                     </section>
                     <section className='stock'>
                     <p>restant</p>
-                    <p className='rest'>{element.stock}</p>
+                    <p className='rest'>{element.stockGlobal}</p>
                     </section>
                  </section>
                 </article>

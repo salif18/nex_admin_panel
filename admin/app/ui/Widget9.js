@@ -1,6 +1,6 @@
 import React from 'react'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-const Widget9 = () => {
+const Widget9 = ({count}) => {
   return (
     <article className='widget9'>
       <section className='widget9-content'>
@@ -8,7 +8,7 @@ const Widget9 = () => {
         <ShoppingBasketIcon className='icon' />
       </section>
 
-      <p>520 </p>
+      <p>{count}</p>
     </article>
   )
 }

@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
@@ -6,10 +7,14 @@ const Widget4 = ({ data }) => {
   const weekday = ["lun", "mar", "mer", "jeu", "ven", "sam", "dim"];
 
   // CONVERTIR LES DONNÉES EN FORMAT COMPATIBLE CHART
-  const chartData = data && data.length > 0 && data.map((row) => ({
-    label: `${weekday[row.day - 1]}`,
-    total: row.total,
-  }));
+  const chartData = data && data.length > 0 && data.map((row) => {
+    // const day = parseInt(row.date.split("-")[0], 10); // Extraire le jour du mois
+    const dayOfWeek = moment(row.date, "DD-MM-YYYY").isoWeekday(); // Obtenir le jour de la semaine
+    return {
+      label: `${weekday[dayOfWeek - 1]}`,
+      total: row.total
+  }
+  });
 
   return (
     <article className='widget4'>

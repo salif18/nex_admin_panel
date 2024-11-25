@@ -6,10 +6,13 @@ const Widget5 = ({ data }) => {
   const month = ["jan", "fév", "mar", "avr", "mai", "jui", "juil", "aout", "sep", "oct", "nov", "déc"];
 
   // CONVERTIR LES DONNÉES EN FORMAT COMPATIBLE CHART
-  const chartData = data && data.length > 0 && data.map((row) => ({
-    label: `${month[row.date.split("-")[1] - 1]}`,
-    total: row.total,
-  }));
+  const chartData = data && data.length > 0 && data.map((row) => {
+    return {
+      label: row.annee && row.mois ? `${month[row.mois - 1]}-${row.annee}` : 'Inconnu',
+      nombreCommandes: row.nombre_commandes || 0,
+      totalVentes: row.total_ventes || 0,
+    };
+  });
 
   return (
     <article className='widget5'>

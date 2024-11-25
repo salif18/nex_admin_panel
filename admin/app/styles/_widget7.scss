@@ -36,6 +36,8 @@
        margin-top: 20px;
         display: flex;
         flex-direction: column;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
         li{
             list-style: none;
             article{
