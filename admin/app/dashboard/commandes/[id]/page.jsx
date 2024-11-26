@@ -94,11 +94,9 @@ const Single = () => {
             </section>
             <section className='address'>
                 <div className='row1'>
-                    <h2>Total - frais de transport</h2>
+                    <h2>Total </h2>
                     <div className='total-container'>
                     {order?.total && <span> {order?.total} FCFA</span>}
-                    {order?.total && <span> - 1000 FCFA </span>}
-                    {order?.total && <span> {order?.total - 1000} FCFA</span>}
                     </div>
                 </div>
                 <div className='row2'>

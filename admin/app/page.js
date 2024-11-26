@@ -254,7 +254,7 @@ useEffect(()=>{
         <section className='row'>
           <section className='column'>
             <Widget stock={formatNumber(totalStock)} />
-            <Widget1 totalcost={totalCost} />
+            <Widget1 totalcost={totalCost + totalRevenu} />
             <Widget8  count={formatNumber(userCount)} />
           </section>
           <section className='column'>
