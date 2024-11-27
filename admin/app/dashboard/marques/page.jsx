@@ -1,28 +1,51 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import PlaylistRemoveRoundedIcon from '@mui/icons-material/PlaylistRemoveRounded';
 import { useRouter } from 'next/navigation';
 import { DataGrid } from '@mui/x-data-grid';
 import fakemark from "@/app/lib/fakemark"
+import axios from 'axios';
 
 
 const Marques = () => {
+    const [marques , setMarques] = useState([])
+
 const router = useRouter();
       // FONTION DE NAVIGATION VERS UNE AUTRE PAGE
       const _handleNavigateCreateMark = () => {
         router.push("/dashboard/marques/create")
     }
 
+    useEffect(()=>{
+         const fetchData =async()=>{
+            try{
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/marques`,{
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer `,
+                    },
+                });
+                if (response.status === 200) {      
+                    setMarques(response?.data?.marques)
+        
+                }
+            }catch(e){
+               console.log(e.response.data.message)
+            }
+         }
+         fetchData()
+    },[marques])
+
 
     //DEFINITION DES DIFFERENTES COLONNES POUR LE TABLEAU DE DATA GRID
     const columns = [
-        { field: "id", headerName: "ID", width: 20 },
+        { field: "_id", headerName: "ID", width: 20 },
         {
-            field: "img", headerName: "Image", width: 200, renderCell: (params) => {
+            field: "image", headerName: "Image", width: 200, renderCell: (params) => {
                 return (
                     <figure>
-                        <img src={params.row.img} alt={params.row.name} style={{ width: 50, height: 50 }} />
+                        <img src={params.row.image} alt={params.row.name} style={{ width: 50, height: 50 }} />
                     </figure>
                 )
             }
@@ -57,8 +80,8 @@ const router = useRouter();
                 <section className='section'>
 
                     <DataGrid
-                        rows={fakemark}
-                        getRowId={(row) => row.id}
+                        rows={marques}
+                        getRowId={(row) => row._id}
                         disableSelectionOnclick
                         columns={columns}
                         pageSize={10}

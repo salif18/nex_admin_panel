@@ -2,6 +2,8 @@
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { ImLocation } from "react-icons/im";
+
 
 const Single = () => {
     const { id } = useParams();
@@ -43,6 +45,12 @@ const Single = () => {
     console.log(e.response?.data?.message || "error")
     }
 }
+
+const handleViewPosition =()=>{
+const appUrl = "https://shoplines-admin.vercel.app";
+const mapsUrl = `https://www.google.com/maps?q=${order?.location?.lat},${order?.location?.lng}&callback=${appUrl}`;
+window.open(mapsUrl, "_blank");
+}
  
 
     return (
@@ -72,6 +80,13 @@ const Single = () => {
                 <h2>Email</h2>
                 <span>{order?.user?.email}</span>
                 </section>
+                {
+                order?.location?.lng && 
+                <section className='row'>
+                <h2>Address position</h2>
+                <ImLocation  style={{fontSize:"1.2em",cursor:"pointer", color:"green"}}  onClick={handleViewPosition} />
+                </section>
+                }
             </section>
             <section className='product-items'>
                 {order?.cart?.map((item) => item && (
