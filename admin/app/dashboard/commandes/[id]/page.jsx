@@ -80,13 +80,13 @@ window.open(mapsUrl, "_blank");
                 <h2>Email</h2>
                 <span>{order?.user?.email}</span>
                 </section>
-                {
+                {/* {
                 order?.location?.lng && 
                 <section className='row'>
                 <h2>Address position</h2>
                 <ImLocation  style={{fontSize:"1.2em",cursor:"pointer", color:"green"}}  onClick={handleViewPosition} />
                 </section>
-                }
+                } */}
             </section>
             <section className='product-items'>
                 {order?.cart?.map((item) => item && (
@@ -116,8 +116,9 @@ window.open(mapsUrl, "_blank");
                 </div>
                 <div className='row2'>
                     <h2>Address</h2>
-                    {order?.address?.ville && <span>{order?.address?.ville} Rue: {order?.address?.rue} Logement: {order?.address?.logt}</span>}
+                    {order?.address?.ville && <span><ImLocation  style={{fontSize:"1.2em",cursor:"pointer", color:"green"}}  onClick={handleViewPosition} />   {order?.address?.ville} Rue: {order?.address?.rue} Logement: {order?.address?.logt} </span>}
                 </div>
+               
             </section>
         </main>
     );
