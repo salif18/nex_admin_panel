@@ -154,7 +154,7 @@ useEffect(()=>{
 useEffect(()=>{
   const fetchData=async()=>{
      try {
-         const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/commandes/stats-by-month`,{
+         const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/commandes/stats-by-year`,{
              headers: {
                  'Content-Type': 'application/json',
                  'Authorization': `Bearer `,
