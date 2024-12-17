@@ -97,7 +97,6 @@ useEffect(()=>{
              },
          });
          if (response.status === 200) {
-             console.log("Produit ajouté avec succès :", response.produitsStockEpuisé);
              setStockEpuise(response?.data?.produitsStockEpuisé)
          }
 
@@ -154,14 +153,15 @@ useEffect(()=>{
 useEffect(()=>{
   const fetchData=async()=>{
      try {
-         const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/commandes/stats-by-year`,{
+         const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/commandes/stats-by-year-current`,{
              headers: {
                  'Content-Type': 'application/json',
                  'Authorization': `Bearer `,
              },
          });
          if (response.status === 200) {
-             setStatsYear(response?.data?.statsMonth)
+             setStatsYear(response.data?.stats)
+             console.log("stats de lanne en cours", statsYear)
          }
 
      } catch (error) {

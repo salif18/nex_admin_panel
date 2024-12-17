@@ -34,8 +34,8 @@ const Widget5 = ({ data }) => {
             <YAxis />
             <CartesianGrid strokeDasharray="3 3" />
             <Tooltip />
-            <Area type="monotone" dataKey="total" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-            <Area type="monotone" dataKey="total" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+            <Area type="monotone" dataKey="nombreCommandes" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+            <Area type="monotone" dataKey="totalVentes" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
           </AreaChart>
         </ResponsiveContainer>
       </section>
