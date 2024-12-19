@@ -11,6 +11,11 @@ import Widget7 from './ui/Widget7';
 import Widget8 from './ui/Widget8';
 import Widget9 from './ui/Widget9';
 import axios from 'axios';
+import GrosAcheteur from './ui/Widget10';
+import UserFidel from './ui/Widget12';
+import StatsByMonth from './ui/Widget11';
+import Widget14 from './ui/Widget14';
+import Widget13 from './ui/Widget13';
 
 
 export default function Home() {
@@ -24,7 +29,10 @@ export default function Home() {
   const [statsWeek , setStatsWeek] = useState([]);
   const [produitsPlusAchetes,setProduitsPlusAchetes] = useState([])
   const [stockEpuise, setStockEpuise] = useState([])
-
+  const [statsMonth, setStatsMonth] = useState([])
+  const [statsDay, setStatsDay] = useState([])
+  const [grosAcheteurs, setGrosAcheteur] = useState([])
+  const [clientsFidels, setClientsFidels] = useState([])
   useEffect(()=>{
     const fetchData=async()=>{
        try {
@@ -234,6 +242,87 @@ useEffect(()=>{
   fetchData()
 },[])
 
+useEffect(()=>{
+    const fetchData=async()=>{
+       try {
+           const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/commandes/stats-by-month-current`,{
+               headers: {
+                   'Content-Type': 'application/json',
+                   'Authorization': `Bearer `,
+               },
+           });
+           if (response.status === 200) {
+               setStatsMonth(response?.data?.stats)
+           }
+
+       } catch (error) {
+           console.error("Erreur lors de l'ajout du produit :", error.response?.data?.message || error.message);
+       }
+    }
+    fetchData()
+},[])
+
+
+useEffect(()=>{
+    const fetchData=async()=>{
+       try {
+           const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/commandes/client-fidel`,{
+               headers: {
+                   'Content-Type': 'application/json',
+                   'Authorization': `Bearer `,
+               },
+           });
+           if (response.status === 200) {
+               setClientsFidels(response?.data?.stats)
+           }
+
+       } catch (error) {
+           console.error("Erreur lors de l'ajout du produit :", error.response?.data?.message || error.message);
+       }
+    }
+    fetchData()
+},[])
+
+useEffect(()=>{
+    const fetchData=async()=>{
+       try {
+           const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/commandes/gros-acheteur`,{
+               headers: {
+                   'Content-Type': 'application/json',
+                   'Authorization': `Bearer `,
+               },
+           });
+           if (response.status === 200) {
+               setGrosAcheteur(response?.data?.stats)
+           }
+
+       } catch (error) {
+           console.error("Erreur lors de l'ajout du produit :", error.response?.data?.message || error.message);
+       }
+    }
+    fetchData()
+},[])
+
+useEffect(()=>{
+    const fetchData=async()=>{
+       try {
+           const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/commandes/stats-by-day`,{
+               headers: {
+                   'Content-Type': 'application/json',
+                   'Authorization': `Bearer `,
+               },
+           });
+           if (response.status === 200) {
+               setStatsDay(response?.data?.stats)
+           }
+
+       } catch (error) {
+           console.error("Erreur lors de l'ajout du produit :", error.response?.data?.message || error.message);
+       }
+    }
+    fetchData()
+},[])
+
 
   function formatNumber(number) {
     if (number >= 1_000_000) {
@@ -256,11 +345,13 @@ useEffect(()=>{
             <Widget stock={formatNumber(totalStock)} />
             <Widget1 totalcost={totalCost + totalRevenu} />
             <Widget8  count={formatNumber(userCount)} />
+            <Widget13 count={formatNumber(commandeCount)} />
           </section>
           <section className='column'>
             <Widget2 totalRevenu={totalRevenu} />
             <Widget3 totalBenefice={totalBenefice} />
             <Widget9 count={formatNumber(commandeCount)} />
+            <Widget14 count={formatNumber(commandeCount)} />
           </section>
         </section>
       </section>
@@ -272,6 +363,14 @@ useEffect(()=>{
         <section className='row'>
           <Widget6 stockEpuise={stockEpuise} />
           <Widget7 produits={produitsPlusAchetes} />
+        </section>
+        <StatsByMonth data={statsMonth} />
+      </section>
+
+      <section className='three-row'>
+        <section className='row'>
+          <UserFidel data={clientsFidels} />
+          <GrosAcheteur grosAcheteurs={grosAcheteurs} />
         </section>
         <Widget5 data={statsYear} />
       </section>
