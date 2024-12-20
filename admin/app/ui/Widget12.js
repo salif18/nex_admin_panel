@@ -6,7 +6,7 @@ const UserFidel = ({data}) => {
   return (
     <article className='widget7' >
     <section className='title-row'>
-      <h1>Les clients fidels</h1>
+      <h1>Les clients fidèles</h1>
       {/* <LeaderboardIcon className='icon' /> */}
     </section>
 
