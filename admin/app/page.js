@@ -33,6 +33,7 @@ export default function Home() {
   const [statsDay, setStatsDay] = useState([])
   const [grosAcheteurs, setGrosAcheteur] = useState([])
   const [clientsFidels, setClientsFidels] = useState([])
+  const [countOrder, setCountOrder] = useState({})
   useEffect(()=>{
     const fetchData=async()=>{
        try {
@@ -136,6 +137,29 @@ useEffect(()=>{
   }
   fetchData()
 },[])
+
+useEffect(()=>{
+    const fetchData=async()=>{
+       try {
+           const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/commandes/count_stats`,{
+               headers: {
+                   'Content-Type': 'application/json',
+                   'Authorization': `Bearer `,
+               },
+           });
+           if (response.status === 200) {
+              
+               setCountOrder(response?.data?.countCommandes)
+              
+           }
+  
+       } catch (error) {
+           console.error("Erreur lors de l'ajout du produit :", error.response?.data?.message || error.message);
+       }
+    }
+    fetchData()
+  },[])
+  
 
 
 useEffect(()=>{
@@ -345,13 +369,14 @@ useEffect(()=>{
             <Widget stock={formatNumber(totalStock)} />
             <Widget1 totalcost={totalCost + totalRevenu} />
             <Widget8  count={formatNumber(userCount)} />
-            <Widget13 count={formatNumber(commandeCount)} />
+            <Widget2 totalRevenu={totalRevenu} />
           </section>
           <section className='column'>
-            <Widget2 totalRevenu={totalRevenu} />
+            
             <Widget3 totalBenefice={totalBenefice} />
             <Widget9 count={formatNumber(commandeCount)} />
-            <Widget14 count={formatNumber(commandeCount)} />
+            <Widget13 count={countOrder} />
+            <Widget14 count={countOrder} />
           </section>
         </section>
       </section>

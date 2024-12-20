@@ -4,7 +4,7 @@ import React from 'react'
 const UserFidel = ({data}) => {
   
   return (
-    <article className='widget7' style={{width:"250px"}}>
+    <article className='widget7' >
     <section className='title-row'>
       <h1>Les clients fidels</h1>
       {/* <LeaderboardIcon className='icon' /> */}

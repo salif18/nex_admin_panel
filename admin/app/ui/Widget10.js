@@ -3,7 +3,7 @@ import React from 'react'
 
 const GrosAcheteur = ({grosAcheteurs}) => {
   return (
-    <article className='widget7' style={{width:"300px"}}>
+    <article className='widget7'>
       <section className='title-row'>
         <h1>Les gros acheteurs</h1>
         {/* <LeaderboardIcon className='icon' /> */}
