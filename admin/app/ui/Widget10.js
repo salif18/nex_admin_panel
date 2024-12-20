@@ -1,12 +1,14 @@
 "use client"
 import React from 'react'
+import { RiUserStarLine } from "react-icons/ri";
+
 
 const GrosAcheteur = ({grosAcheteurs}) => {
   return (
     <article className='widget7'>
       <section className='title-row'>
         <h1>Les gros acheteurs</h1>
-        {/* <LeaderboardIcon className='icon' /> */}
+        <RiUserStarLine  className='icon' style={{color:"orangered"}} />
       </section>
 
       <section className='widget7-article'>

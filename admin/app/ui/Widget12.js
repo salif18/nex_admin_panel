@@ -1,5 +1,6 @@
 "use client "
 import React from 'react'
+import { AiOutlineUserSwitch } from "react-icons/ai";
 
 const UserFidel = ({data}) => {
   
@@ -7,7 +8,7 @@ const UserFidel = ({data}) => {
     <article className='widget7' >
     <section className='title-row'>
       <h1>Les clients fidèles</h1>
-      {/* <LeaderboardIcon className='icon' /> */}
+      <AiOutlineUserSwitch  className='icon' />
     </section>
 
     <section className='widget7-article'>
