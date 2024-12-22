@@ -6,7 +6,7 @@ const Widget6 = ({stockEpuise}) => {
   return (
     <article className='widget6'>
       <section className='title-row'>
-         <h1>Les produits en finition</h1>
+         <h1>Les produits bientôt en rupture</h1>
       <TrendingDownIcon className='icon' />
       </section>
      
