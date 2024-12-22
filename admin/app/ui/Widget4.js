@@ -21,7 +21,7 @@ const Widget4 = ({ data }) => {
       <h1>Statistiques Hebdomadaires</h1>
       <section className='chart-container'>
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={chartData} barSize={25} margin={{ top: 20, right: 10, left: 2, bottom: 5 }}>
+          <BarChart data={chartData} barSize={40} margin={{ top: 20, right: 10, left: 2, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="label" />
             <YAxis />

@@ -25,9 +25,10 @@ const Widget6 = ({stockEpuise}) => {
                     <h2>{element.name} </h2>
                     <p>{element.category}</p>
                     </section>
-                    <section className='stock'>
-                    <p>restant</p>
+                    <section className='stock'> 
                     <p className='rest'>{element.stockGlobal}</p>
+                    <p>restant</p>
+                   
                     </section>
                  </section>
                 </article>

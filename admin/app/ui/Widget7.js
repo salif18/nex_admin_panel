@@ -30,7 +30,7 @@ const Widget7 = ({produits}) => {
                     <section className='achat'>
                      
                       <Groups2Icon className='icon' />
-                      <p className='nombre'>{element.achat}</p>
+                      <p className='nombre'>{element.totalQuantity}</p>
                     </section>
                   </section>
                 </article>
