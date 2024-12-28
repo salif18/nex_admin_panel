@@ -13,6 +13,36 @@ const Products = () => {
     const router = useRouter()
     const [_searchValue, _setSearchValue] = useState("")
     const [products , setProducts] = useState([])
+    const [promotion, setPromotion] = useState(null);
+    const [timeLeft, setTimeLeft] = useState({});
+  
+    useEffect(() => {
+      const fetchPromotion = async () => {
+        try {
+          const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/active-rebourse`);
+          if(response.status === 200){
+            setPromotion(response.data);
+          }
+          
+        } catch (error) {
+          console.log(error);
+        }
+      };
+  
+      fetchPromotion();
+    }, []);
+    const [isValid, setIsValid] = useState(true);
+    const [reponseServer, setReponseServer] = useState("");
+    const [startPromo, setStartPromo] = useState({
+        name:"",
+        startTime:"",
+        endTime:""
+    })
+
+    const handleChange=(e)=>{
+        const { name ,value }= e.target;
+        setStartPromo({...startPromo ,[name]:value})
+    }
 
 
     useEffect(()=>{
@@ -121,6 +151,44 @@ const Products = () => {
 
     ];
 
+    const handleSend = async(e)=>{
+        e.preventDefault()
+        // Validation des champs
+        if (
+           !startPromo.name ||
+           !startPromo.startTime ||
+           !startPromo.endTime
+        ) {
+            setIsValid(false); // Affichez un message d'erreur à l'utilisateur
+            setReponseServer("Veuillez remplir les champs!")
+            return;
+
+        }
+        try{
+           const response = await axios.post(`${process.env.NEXT_PUBLIC_URI}/active-rebourse`,startPromo,{
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer `,
+            }});
+           if(response.status === 201){
+            setReponseServer(response?.data?.message)
+            setStartPromo({
+                name:"",
+                startTime:"",
+                endTime:""
+            })
+           }
+        }catch(e){
+            console.log("Erreur lors de l'ajout du produit :", e.response?.data?.message || e.message);
+        }
+    }
+
+     useEffect(() => {
+            if (reponseServer) {
+                const timer = setTimeout(() => setReponseServer(""), 3000)
+                return () => clearTimeout(timer)
+            }
+        }, [reponseServer])
     
     return (
         <main className="product">
@@ -159,6 +227,24 @@ const Products = () => {
 
             </article>
             {/* FIN DE CONTENUS */}
+            <section className='start-promo'>
+            <h2>Définir un compte à reboure promo</h2>
+            <form onSubmit={handleSend}>
+                <section>
+                  <label>Nom</label>
+                  <input type='text' name='name' value={startPromo.name} onChange={handleChange} placeholder='Nom ' />
+                </section>
+                <section>
+                  <label>Debut</label>
+                  <input type='date' name='startTime' value={startPromo.startTime} onChange={handleChange} placeholder='date de début ' />
+                </section>
+                <section>
+                  <label>Fin</label>
+                  <input type='date' name='endTime' value={startPromo.endTime} onChange={handleChange} placeholder='date de fin ' />
+                </section>
+                {!promotion && <button type='submit'>{reponseServer || "Démarer"}</button>}
+            </form>
+            </section>
         </main>
     )
 }

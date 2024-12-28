@@ -2,6 +2,7 @@ import React from 'react'
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import Groups2Icon from '@mui/icons-material/Groups2';
+
 const Widget7 = ({produits}) => {
 
   
@@ -28,7 +29,6 @@ const Widget7 = ({produits}) => {
                       <p>{element.categorie}</p>
                     </section>
                     <section className='achat'>
-                     
                       <Groups2Icon className='icon' />
                       <p className='nombre'>{element.totalQuantity}</p>
                     </section>
